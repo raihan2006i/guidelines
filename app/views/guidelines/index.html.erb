@@ -1,0 +1,27 @@
+<h1>Listing guidelines</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Hospital</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guidelines.each do |guideline| %>
+  <tr>
+    <td><%= guideline.title %></td>
+    <td><%= guideline.content %></td>
+    <td><%= guideline.hospital %></td>
+    <td><%= link_to 'Show', guideline %></td>
+    <td><%= link_to 'Edit', edit_guideline_path(guideline) %></td>
+    <td><%= link_to 'Destroy', guideline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guideline', new_guideline_path %>
