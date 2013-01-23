@@ -10,16 +10,19 @@
   
 <strong><%= guideline.title %></strong>
 <p><%= guideline.content %></p>
-<p><em><%= guideline.hospital %></em></p>
-<div class="meta">
-  <%= link_to time_ago_in_words(guideline.created_at) + " ago", guideline %>
+<p><%= guideline.hospital %></p>
+<p><em>Added by <%= guideline.name %></em></p>
 
-  <span class="admin">
-   | <%= link_to "Edit", edit_guideline_path(guideline) %> |
-    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
-  </span>
 
-</div>
+	<div class="meta">
+	  <%= link_to time_ago_in_words(guideline.created_at) + " ago", guideline %>
+
+	  <span class="admin">
+	   | <%= link_to "Edit", edit_guideline_path(guideline) %> |
+	    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
+	  </span>
+
+	</div>
 </div> 
 
 <% end %>
