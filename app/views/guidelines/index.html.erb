@@ -8,14 +8,14 @@
 
 <div class="guideline">
   
-Title: <strong><%= guideline.title %></strong>
+Title: <strong><%= link_to guideline.title, guideline %></strong>
 <p>Link to guideline: <a href="<%= guideline.content %>"><%= guideline.content %></a> </p>
 <p>Hospital Name: <%= guideline.hospital %></p>
-<p><em>Added by <%= guideline.user.profile_name %></em></p>
+
 
 
 	<div class="meta">
-	  <%= link_to time_ago_in_words(guideline.created_at) + " ago", guideline %>
+	  <%= time_ago_in_words(guideline.created_at) + " ago" %>
 
 	  <span class="admin">
 	   | <%= link_to "Edit", edit_guideline_path(guideline) %> |

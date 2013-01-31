@@ -24,7 +24,15 @@ class GuidelinesControllerTest < ActionController::TestCase
 
   end
 
-  test "should create guideline" do
+  test "should be logged in to post a guideline" do
+    post :create, status: { content: "Hello, world"}
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+
+  end
+
+  test "should create guideline when logged in" do
+    sign_in users(:tessa)
     assert_difference('Guideline.count') do
       post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title }
     end
@@ -37,12 +45,14 @@ class GuidelinesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  test "should get edit when logged in" do
+    sign_in users(:tessa)
     get :edit, id: @guideline
     assert_response :success
   end
 
-  test "should update guideline" do
+  test "should update guideline when logged in" do
+    sign_in users(:tessa)
     put :update, id: @guideline, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title }
     assert_redirected_to guideline_path(assigns(:guideline))
   end
