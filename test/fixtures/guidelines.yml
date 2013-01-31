@@ -4,8 +4,10 @@ one:
   title: MyString
   content: MyText
   hospital: MyString
+  user: tessa
 
 two:
   title: MyString
   content: MyText
   hospital: MyString
+  user: tessa

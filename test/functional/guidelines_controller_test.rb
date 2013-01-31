@@ -11,9 +11,17 @@ class GuidelinesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:guidelines)
   end
 
-  test "should get new" do
+  test "should be redirected when not logged in" do
+    get :new
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should render the new page when logged in" do
+    sign_in users(:tessa)
     get :new
     assert_response :success
+
   end
 
   test "should create guideline" do

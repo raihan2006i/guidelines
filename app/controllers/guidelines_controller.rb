@@ -1,4 +1,6 @@
 class GuidelinesController < ApplicationController
+  before_filter :authenticate_user!, only: [:new]
+
   # GET /guidelines
   # GET /guidelines.json
   def index

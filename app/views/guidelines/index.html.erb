@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>All of the Guidelines</h1>
+  <h1>All Guidelines</h1>
 </div>
 
 <%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
@@ -8,9 +8,9 @@
 
 <div class="guideline">
   
-<strong><%= guideline.title %></strong>
-<p><%= guideline.content %></p>
-<p><%= guideline.hospital %></p>
+Title: <strong><%= guideline.title %></strong>
+<p>Link to guideline: <a href="<%= guideline.content %>"><%= guideline.content %></a> </p>
+<p>Hospital Name: <%= guideline.hospital %></p>
 <p><em>Added by <%= guideline.user.profile_name %></em></p>
 
 
