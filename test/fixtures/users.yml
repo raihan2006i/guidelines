@@ -5,3 +5,11 @@ tessa:
   base_hospital: "Sydney Children's Hospital"
   profile_name: "tessa davis"
   encrypted_password: "password"
+
+fergal:
+  first_name: "Fergal"
+  last_name: "Davis"
+  email: "fergalfdavis@gmail.com"
+  base_hospital: "Royal Children's Hospital"
+  profile_name: "fergal davis"
+  encrypted_password: "password"

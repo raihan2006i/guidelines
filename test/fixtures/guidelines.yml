@@ -11,3 +11,9 @@ two:
   content: MyText
   hospital: MyString
   user: tessa
+
+three:
+  title: Glasses
+  content: Great specs
+  hospital: At Home
+  user: fergal

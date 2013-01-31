@@ -15,7 +15,7 @@ Guidelines::Application.routes.draw do
   get 'guidelines', to: 'guidelines#index', as: :guidelines
   root :to => 'guidelines#index'
 
-
+  get '/:id', to: 'profiles#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
