@@ -2,17 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.guideline {
-	border-bottom: solid 1px #CCC;
-	padding: 5px 0;
-}
+
 
 .guideline p {
 	
 	margin: 4px 0;
 }
 
-.guideline.hover{
+.row.hover{
 	
 	background: #FAFAFA;
 }
@@ -20,6 +17,12 @@
 	display: none;
 }
 
-.guideline.hover .admin{
+.row.hover .admin{
 	display: inline;
 }
+
+.guidelinerow {
+	border-bottom: solid 1px #CCC;
+	padding: 5px 0;
+}
+
