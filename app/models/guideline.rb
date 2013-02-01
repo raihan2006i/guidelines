@@ -16,10 +16,6 @@ class Guideline < ActiveRecord::Base
 
   validates_uniqueness_of :title, :scope => :hospital, :case_sensitive => false, :message => "There is already a guideline by this title for this hospital"
 
-  def external_link
-
-    "content.strip.downcase"
-  end
 
 
 

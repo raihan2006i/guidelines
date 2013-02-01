@@ -1,3 +1,5 @@
+
+
 <div class="page-header">
   <h1>All Guidelines</h1>
 </div>
@@ -9,7 +11,8 @@
 <div class="guidelinerow">
 	<div class="row">
 		<div class="span1">
-			<%= image_tag guideline.user.gravatar_url %>
+			 avatar
+			 <%- # <%= image_tag guideline.user.gravatar_url %> 
 		</div>
 		<div class="span7">	
 			<div class="guideline">
@@ -24,8 +27,12 @@
 				  <%= time_ago_in_words(guideline.created_at) + " ago" %>
 
 				  <span class="admin">
-				   | <%= link_to "Edit", edit_guideline_path(guideline) %> |
+
+				  	<% if guideline.user == current_user %>
+				   | <%= link_to "Edit", edit_guideline_path(guideline) %> 
+				   |
 				    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
+				    <% end %>
 				  </span>
 
 				</div>
