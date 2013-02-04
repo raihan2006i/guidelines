@@ -1,6 +1,8 @@
 class GuidelinesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
 
+  
+
   # GET /guidelines
   # GET /guidelines.json
   def index
@@ -23,6 +25,7 @@ class GuidelinesController < ApplicationController
     end
   end
 
+ 
   # GET /guidelines/new
   # GET /guidelines/new.json
   def new
@@ -82,4 +85,6 @@ class GuidelinesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end

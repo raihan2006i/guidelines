@@ -1,4 +1,6 @@
 Guidelines::Application.routes.draw do
+  get "list/show"
+
   get "profiles/show"
 
   devise_for :users
