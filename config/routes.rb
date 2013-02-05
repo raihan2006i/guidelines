@@ -1,7 +1,14 @@
 Guidelines::Application.routes.draw do
-  get "list/show"
+
+
+
 
   get "profiles/show"
+  get "guidelines/list"
+  get "guidelines/topic"
+
+
+
 
   devise_for :users
 
@@ -18,6 +25,12 @@ Guidelines::Application.routes.draw do
   root :to => 'guidelines#index'
 
   get '/:id', to: 'profiles#show'
+  get '/:id', to: 'guidelines#topic'
+  
+ 
+  
+
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,43 @@
+<h1>All <% @guidelines %> Guidelines</h1>
+
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
+
+
+<% @guidelines.each do |guideline| %>
+
+<div class="guidelinerow">
+	<div class="row">
+		
+		<div class="span8">	
+			<div class="guideline">
+			  
+			 <p>
+  <b>Title:</b>
+  <strong><%= link_to guideline.title, guideline %></strong>
+</p>
+
+<p>
+  <b>Content:</b>
+  <a href="<%= guideline.content %>"><%= guideline.content %></a> 
+</p>
+
+<p>
+  <b>Hospital:</b>
+  <%= guideline.hospital %>
+</p>
+
+<p>
+  <b>Added by:</b>
+  <%= guideline.user.profile_name %>
+
+</p>
+				  
+
+				  
+
+				
+			</div> 
+		</div>
+	</div>
+</div>
+<% end %>

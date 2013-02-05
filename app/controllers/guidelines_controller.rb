@@ -14,6 +14,41 @@ class GuidelinesController < ApplicationController
     end
   end
 
+def topic
+
+    @guidelines = Guideline.find_all_by_title(params[:title])
+
+    
+   
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+    
+end
+ 
+
+
+
+  def list
+
+    @guidelines = Guideline.order(:title)
+    @list=Array.new
+    @guidelines.each do |guideline|
+      if !@list.include?(guideline.title)
+        @list.push(guideline.title)
+      end
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+    
+  end
+
+ 
+
   # GET /guidelines/1
   # GET /guidelines/1.json
   def show
