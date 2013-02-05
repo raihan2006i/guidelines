@@ -10,15 +10,11 @@
 
 <div class="guidelinerow">
 	<div class="row">
-		<div class="span1">
-			 
-			 <%= image_tag guideline.user.gravatar_url %> 
-		</div>
-		<div class="span7">	
+		<div class="span8">	
 			<div class="guideline">
 			  
-			Title: <strong><%= link_to guideline.title, guideline %></strong>
-			<p>Link to guideline: <a href="<%= guideline.content %>"><%= guideline.content %></a> </p>
+			<p>Title: <%= link_to guideline.title, guideline %></p>
+			<strong> <a href="<%= guideline.content %>">Link to guideline</a> </strong>
 			<p>Hospital Name: <%= guideline.hospital %></p>
 
 

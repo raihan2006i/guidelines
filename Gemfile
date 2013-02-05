@@ -7,6 +7,8 @@ gem 'rails', '3.2.10'
 
 gem 'devise'
 gem 'simple_form'
+gem 'activeadmin'
+gem "bcrypt-ruby", :require => "bcrypt"
 
 group :development, :test do
 	gem 'sqlite3'

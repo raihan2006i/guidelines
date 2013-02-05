@@ -3,6 +3,12 @@ Guidelines::Application.routes.draw do
 
 
 
+  get "users/index"
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   get "profiles/show"
   get "guidelines/list"
   get "guidelines/topic"
