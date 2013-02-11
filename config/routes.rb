@@ -35,7 +35,7 @@ Guidelines::Application.routes.draw do
   get '/:id', to: 'profiles#show'
   get '/:id', to: 'guidelines#topic'
   
- 
+
   
 
  

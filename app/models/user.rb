@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates :base_hospital, presence:true
 
  has_many :guidelines
+ 
 
  def full_name
  	first_name + " " + last_name

@@ -30,8 +30,6 @@ class GuidelinesController < ApplicationController
     end
     
   end
- 
-
 
 
   def list
