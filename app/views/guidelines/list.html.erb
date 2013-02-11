@@ -2,25 +2,17 @@
   <h1>Alphabetical List</h1>
 </div>
 
-<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>
 
+<table class="table table-striped table-hover">
 
-<% @list.each do |title| %>
-
-<div class="guidelinerow">
-	<div class="row">
-		
-		<div class="span8">	
-			<div class="guideline">
-			  
-			 <strong><%= link_to title, :action => :topic, :title => title %></strong>
-		
+		<% @list.each do |title| %>
+		<tr>
+			<td><%= link_to title, :action => :topic, :title => title %></td>
+		</tr>
 
 				  
 
 				
-			</div> 
-		</div>
-	</div>
-</div>
+	
 <% end %>

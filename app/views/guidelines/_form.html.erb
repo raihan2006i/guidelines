@@ -13,7 +13,8 @@
 
 
 
-  <%= f.input :title%>
+  <%= f.input :title, label: 'Keyword (e.g. Asthma)' %>
+  <%= f.input :subtitle, label: 'Subtitle (e.g. for children)'%>
   <%= f.input :hospital %>
   <%= f.input :content, as: :string, label: 'Link' %>
  
@@ -21,6 +22,6 @@
 
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => "btn btn-info btn-large" %>
   </div>
 <% end %>

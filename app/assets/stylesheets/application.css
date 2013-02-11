@@ -11,8 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+table.table td a {width: 940px; display:block; text-decoration:none;}
+
+
+
+
+a.btn {margin-bottom: 30px; margin-top: 40;}
 body{
-	padding-top: 40px;
+	padding-top: 80px;
 }
 
 .alert{

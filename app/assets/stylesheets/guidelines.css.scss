@@ -9,15 +9,20 @@
 	margin: 4px 0;
 }
 
-.row.hover{
+.tablerow.hover{
 	
-	background: #FAFAFA;
+	background: lighten(rgb(69, 81, 95),10%);
+}
+
+.guidelinerow.hover{
+	
+	background: lighten(#2a333c, 10%);
 }
 .guideline .admin{
 	display: none;
 }
 
-.row.hover .admin{
+.guidelinerow.hover .admin{
 	display: inline;
 }
 

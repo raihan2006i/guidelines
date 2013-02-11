@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.10'
@@ -7,9 +8,13 @@ gem 'rails', '3.2.10'
 
 gem 'devise'
 gem 'simple_form'
-gem 'activeadmin'
+gem 'activeadmin', :git => "git://github.com/gregbell/active_admin.git"
 gem "bcrypt-ruby", :require => "bcrypt"
-gem 'cancan'
+gem 'heroku'
+
+gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+gem 'ruby-debug19'
 
 group :development, :test do
 	gem 'sqlite3'

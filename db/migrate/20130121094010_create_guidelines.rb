@@ -6,6 +6,7 @@ class CreateGuidelines < ActiveRecord::Migration
       t.string :hospital
 
 
+
       t.timestamps
     end
   end

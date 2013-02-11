@@ -11,16 +11,18 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="#" class="brand"> Guidelines</a>
+				<%= link_to "Guidelines", guidelines_path, :class => 'brand' %>
+				
 				<ul class="nav">
 					
-					<li><%= link_to "Show All", guidelines_path %></li>
-					<li><%= link_to "List by Topic", guidelines_list_path %></li>
-					<li><%= link_to "List by Hospital", guidelines_listhospital_path %></li>
+					
+					<li class="<%= 'active' if current_page?(guidelines_list_path) %>"><%= link_to "List by Topic", guidelines_list_path %></li>
+					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "List by Hospital", guidelines_listhospital_path %></li>
+					<li class="<%= 'active' if current_page?(guidelines_path) %>"><%= link_to "List All", guidelines_path %></li>
 				</ul>
 				<ul class="nav pull-right">
 					<% if user_signed_in? %>
-					<li><%= link_to current_user.full_name, edit_path %></li>
+					<li class="<%= 'active' if current_page?(edit_path) %>"><%= link_to current_user.full_name, edit_path %></li>
 					<li> <%= link_to "Log out", logout_path %></li>
 					<% else %>
 					<li><%= link_to "Register", register_path %></li>

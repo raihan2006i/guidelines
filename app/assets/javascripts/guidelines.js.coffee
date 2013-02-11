@@ -3,5 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$('.row').hover (event) ->
+	$('.tablerow').hover (event) ->
+		$(this).toggleClass("hover")
+
+$ ->
+	$('.guidelinerow').hover (event) ->
 		$(this).toggleClass("hover")

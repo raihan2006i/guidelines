@@ -2,25 +2,22 @@
   <h1>Hospitals List</h1>
 </div>
 
-<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>
 
 
-<% @list.each do |hospital| %>
+	<table class="table table-striped table-hover">
+			
+		<% @list.each do |hospital| %>
 
-<div class="guidelinerow">
-	<div class="row">
+		<tr class="tablerow">
+			<td><%= link_to hospital, :action => :topichospital, :hospital => hospital %></td>
+		</tr>
+
+	
 		
-		<div class="span8">	
-			<div class="guideline">
-			  
-			 <strong><%= link_to hospital, :action => :topichospital, :hospital => hospital %></strong>
 		
+		
+		
+	
 
-				  
-
-				
-			</div> 
-		</div>
-	</div>
-</div>
 <% end %>

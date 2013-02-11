@@ -2,10 +2,11 @@
 
 <p>
   <b>Title:</b>
-  <%= @guideline.title %>
-</p>
-
+  <%= @guideline.title %> <% if ! @guideline.subtitle.blank? %> - <%= @guideline.subtitle %>
+</p><% end %>
 <p>
+
+
   <b>Content:</b>
   <a href="<%= @guideline.content %>"><%= @guideline.content %></a> 
 </p>

@@ -1,13 +1,16 @@
 <% @guidelines.each_with_index do |guideline, index| %>
 
+<div class="page-header">
+
 	<% if index==0 %>
 	<h1><%= guideline.title %> Guidelines</h1>
 	
 	<% end %>
+</div>
 
 <% end %>
 
-<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>
 
 
 <% @guidelines.each do |guideline| %>
@@ -20,12 +23,11 @@
 			  
 			 <p>
   <b>Title:</b>
-  <strong><%= link_to guideline.title, guideline %></strong>
+  <%= link_to guideline.title, guideline %><% if ! guideline.subtitle.blank? %> - <%= guideline.subtitle %><%end %>
 </p>
 
 <p>
-  <b>Content:</b>
-  <a href="<%= guideline.content %>"><%= guideline.content %></a> 
+  <strong> <a href="<%= guideline.content %>">Link to guideline</a> </strong>
 </p>
 
 <p>
