@@ -1,17 +1,19 @@
+
+
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
+
+
 <% @guidelines.each_with_index do |guideline, index| %>
 
 	<% if index==0 %>
-	<h1><%= guideline.title %> Guidelines</h1>
+	<h1><%= guideline.hospital %> Guidelines</h1>
 	
 	<% end %>
 
 <% end %>
 
-<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
-
 
 <% @guidelines.each do |guideline| %>
-
 <div class="guidelinerow">
 	<div class="row">
 		
@@ -28,10 +30,6 @@
   <a href="<%= guideline.content %>"><%= guideline.content %></a> 
 </p>
 
-<p>
-  <b>Hospital:</b>
-  <%= guideline.hospital %>
-</p>
 <% if guideline.user %>
 <p>
   <b>Added by:</b>

@@ -1,10 +1,14 @@
 class GuidelinesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
 
+
+
   
 
   # GET /guidelines
   # GET /guidelines.json
+  
+  
   def index
     @guidelines = Guideline.all
 
@@ -14,7 +18,7 @@ class GuidelinesController < ApplicationController
     end
   end
 
-def topic
+  def topic
 
     @guidelines = Guideline.find_all_by_title(params[:title])
 
@@ -25,7 +29,7 @@ def topic
       format.json { render json: @guidelines }
     end
     
-end
+  end
  
 
 
@@ -46,6 +50,36 @@ end
     end
     
   end
+
+  def listhospital
+
+
+    @guidelines = Guideline.order(:hospital)
+    @list=Array.new
+    @guidelines.each do |guideline|
+      if !@list.include?(guideline.hospital)
+        @list.push(guideline.hospital)
+      end
+
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+  end
+
+  def topichospital
+
+    @guidelines = Guideline.find_all_by_hospital(params[:hospital])
+   
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+    
+  end
+
 
  
 
@@ -74,13 +108,19 @@ end
 
   # GET /guidelines/1/edit
   def edit
-    @guideline = Guideline.find(params[:id])
+
+      @guideline = Guideline.find(params[:id])
+
+
   end
+
+
+
 
   # POST /guidelines
   # POST /guidelines.json
   def create
-    @guideline = Guideline.new(params[:guideline])
+    @guideline = current_user.guidelines.new(params[:guideline])
 
     respond_to do |format|
       if @guideline.save
@@ -96,14 +136,18 @@ end
   # PUT /guidelines/1
   # PUT /guidelines/1.json
   def update
-    @guideline = Guideline.find(params[:id])
+    @guideline = current_user.guidelines.find(params[:id])
 
+    if params[:guideline] && params[:guideline].has_key?(:user_id)
+        params[:guideline].delete(:user_id) 
+    end
+    
     respond_to do |format|
       if @guideline.update_attributes(params[:guideline])
         format.html { redirect_to @guideline, notice: 'Guideline was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "show" }
         format.json { render json: @guideline.errors, status: :unprocessable_entity }
       end
     end

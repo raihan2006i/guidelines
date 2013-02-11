@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>Hospitals List</h1>
+</div>
+
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success" %>
+
+
+<% @list.each do |hospital| %>
+
+<div class="guidelinerow">
+	<div class="row">
+		
+		<div class="span8">	
+			<div class="guideline">
+			  
+			 <strong><%= link_to hospital, :action => :topichospital, :hospital => hospital %></strong>
+		
+
+				  
+
+				
+			</div> 
+		</div>
+	</div>
+</div>
+<% end %>

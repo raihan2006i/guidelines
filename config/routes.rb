@@ -12,7 +12,8 @@ Guidelines::Application.routes.draw do
   get "profiles/show"
   get "guidelines/list"
   get "guidelines/topic"
-
+  get "guidelines/listhospital"
+  get "guidelines/topichospital"
 
 
 
@@ -23,6 +24,7 @@ Guidelines::Application.routes.draw do
     get 'login', to: 'devise/sessions#new', as: :login
     get 'logout', to: 'devise/sessions#destroy', as: :logout
     get 'edit', to: 'devise/registrations#edit', as: :edit
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
 
   end
 

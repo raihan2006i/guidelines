@@ -9,6 +9,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'activeadmin'
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'cancan'
 
 group :development, :test do
 	gem 'sqlite3'

@@ -15,11 +15,13 @@
   <%= @guideline.hospital %>
 </p>
 
+<% if @guideline.user %>
 <p>
   <b>Added by:</b>
   <%= @guideline.user.profile_name %>
 
 </p>
+<% end %>
 
 <p>Created on <%= @guideline.created_at.strftime("%d %b %Y") %></p>
 
@@ -27,6 +29,7 @@
 
 
 
-
+<% if @guideline.user == current_user %>
 <%= link_to 'Edit', edit_guideline_path(@guideline) %> |
 <%= link_to 'Back', guidelines_path %>
+<% end %>
