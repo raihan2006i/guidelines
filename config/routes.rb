@@ -3,17 +3,20 @@ Guidelines::Application.routes.draw do
 
 
 
-  get "users/index"
+  get "user/index"
 
   ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_user, ActiveAdmin::Devise.config
 
   get "profiles/show"
   get "guidelines/list"
   get "guidelines/topic"
   get "guidelines/listhospital"
   get "guidelines/topichospital"
+  get "about/about"
+
+
 
 
 
@@ -25,7 +28,12 @@ Guidelines::Application.routes.draw do
     get 'logout', to: 'devise/sessions#destroy', as: :logout
     get 'edit', to: 'devise/registrations#edit', as: :edit
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    get 'about', to: 'about#about', as: :about
 
+  end
+
+  resources :guidelines do
+    post :favourite, on: :member
   end
 
   resources :guidelines
@@ -34,6 +42,10 @@ Guidelines::Application.routes.draw do
 
   get '/:id', to: 'profiles#show'
   get '/:id', to: 'guidelines#topic'
+
+  namespace :admin do 
+    resource :users
+  end
   
 
   

@@ -9,10 +9,11 @@ gem 'rails', '3.2.10'
 gem 'devise'
 gem 'simple_form'
 gem 'activeadmin'
+gem 'cancan'
 
-gem 'heroku'
-
-
+group :test do
+	gem 'shoulda'
+end
 group :development, :test do
 	gem 'sqlite3'
 end
@@ -35,7 +36,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -47,4 +48,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'

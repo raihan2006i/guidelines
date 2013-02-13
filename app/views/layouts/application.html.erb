@@ -18,11 +18,13 @@
 					
 					<li class="<%= 'active' if current_page?(guidelines_list_path) %>"><%= link_to "List by Topic", guidelines_list_path %></li>
 					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "List by Hospital", guidelines_listhospital_path %></li>
-					<li class="<%= 'active' if current_page?(guidelines_path) %>"><%= link_to "List All", guidelines_path %></li>
+					
 				</ul>
 				<ul class="nav pull-right">
+					<li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About us", about_path %></li>
+
 					<% if user_signed_in? %>
-					<li class="<%= 'active' if current_page?(edit_path) %>"><%= link_to current_user.full_name, edit_path %></li>
+					<li class="<%= 'active' if current_page?(edit_path) %>"><%= link_to current_user.first_name + "'s Profile", edit_path %></li>
 					<li> <%= link_to "Log out", logout_path %></li>
 					<% else %>
 					<li><%= link_to "Register", register_path %></li>

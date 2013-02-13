@@ -15,4 +15,13 @@ fergal:
   encrypted_password: "password"
 
 
+eve:
+  first_name: "Eve"
+  last_name: "Woolfson"
+  email: "evo@gmail.com"
+  base_hospital: "Royal Children's Hospital"
+  profile_name: "evew"
+  encrypted_password: "password"
+
+
 

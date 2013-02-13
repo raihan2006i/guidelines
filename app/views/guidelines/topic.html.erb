@@ -20,8 +20,13 @@
 		
 		<div class="span8">	
 			<div class="guideline">
-			  
+			 
+	<% if current_user %>
+	<%= link_to "favourite",   favourite_guideline_path(guideline, type: "favourite"), method: "post" %>
+	<%= link_to "unfavourite", favourite_guideline_path(guideline, type: "unfavourite"), method: "post" %>
+<% end %> 
 			 <p>
+
   <b>Title:</b>
   <%= link_to guideline.title, guideline %><% if ! guideline.subtitle.blank? %> - <%= guideline.subtitle %><%end %>
 </p>
@@ -42,6 +47,7 @@
 </p>
 				  
 <% end %>
+
 				  
 
 				

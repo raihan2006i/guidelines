@@ -1,6 +1,9 @@
 class Guideline < ActiveRecord::Base
-  attr_accessible :content, :hospital, :title, :subtitle, :user_id
-  belongs_to :user
+  attr_accessible :content, :hospital, :title, :subtitle, :user_id, :guideline_id
+
+ belongs_to :user
+ has_many :favourite_recipes
+ has_many :favourited_by, source: :guideline, through: :favourite_recipes, source: :user
 
  
 

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class GuidelineTest < ActiveSupport::TestCase
 
+
 	test "that a guideline requires content" do 
 		guideline = Guideline.new
 		assert !guideline.save
