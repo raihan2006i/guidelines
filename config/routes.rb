@@ -32,9 +32,6 @@ Guidelines::Application.routes.draw do
 
   end
 
-  resources :guidelines do
-    post :favourite, on: :member
-  end
 
   resources :guidelines
   get 'guidelines', to: 'guidelines#index', as: :guidelines
