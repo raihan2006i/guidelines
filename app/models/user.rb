@@ -20,8 +20,10 @@ class User < ActiveRecord::Base
   validates :base_hospital, presence:true
 
  has_many :guidelines
- has_many :favourite_guidelines
- has_many :favourites, class_name: "Guideline", through: :favourite_guidelines
+ has_many :favourites, :dependent => :destroy
+ has_many :favourite_guidelines, :through => :favourites, :source => :guideline
+
+
 
 
  

@@ -10,6 +10,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'activeadmin'
 gem 'cancan'
+gem 'recommendable'
+gem 'sidekiq'
 
 group :test do
 	gem 'shoulda'

@@ -18,25 +18,7 @@ class GuidelinesController < ApplicationController
     end
   end
 
-  def createfav
-    @favrecipes =current_user.favorites.create(params[:user_id])
-  end
-  
-  def favourite
-    type = params[:type]
-    if type == "favourite"
-      current_user.favourites << @guideline
-      redirect_to :back, notice: 'You favourited #{@guideline.name}'
 
-    elsif type == "unfavourite"
-      current_user.favourites.delete(@guideline)
-      redirect_to :back, notice: 'Unfavourited #{@guideline.name}'
-
-    else
-      # Type missing, nothing happens
-      redirect_to :back, notice: 'Nothing happened.'
-    end
-  end
 
   def topic
 
