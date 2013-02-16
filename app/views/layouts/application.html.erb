@@ -16,8 +16,9 @@
 				<ul class="nav">
 					
 					
-					<li class="<%= 'active' if current_page?(guidelines_list_path) %>"><%= link_to "List by Topic", guidelines_list_path %></li>
-					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "List by Hospital", guidelines_listhospital_path %></li>
+					<li class="<%= 'active' if current_page?(guidelines_list_path) %>"><%= link_to "By Topic", guidelines_list_path %></li>
+					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "By Hospital", guidelines_listhospital_path %></li>
+					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "Favourites", favourites_show_path %></li>
 					
 				</ul>
 				<ul class="nav pull-right">

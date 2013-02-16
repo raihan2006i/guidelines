@@ -1,0 +1,17 @@
+<div class="page-header">
+	<h1><%= @user.full_name %></h1>
+
+</div>
+
+<% if @guidelines %>
+	<% @guidelines.each do |guideline| %>
+
+		<div class="well">
+			<%= link_to guideline.title, guideline %>
+			<br />
+			<%= guideline.content %>
+			<br />
+			Added <%=  time_ago_in_words(guideline.created_at) %> ago
+		</div>
+	<% end %>
+<% end %>

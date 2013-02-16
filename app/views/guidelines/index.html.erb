@@ -17,7 +17,11 @@
 			<strong> <a href="<%= guideline.content %>">Link to guideline</a> </strong>
 			<p>Hospital Name: <%= guideline.hospital %></p>
 
+			<% if current_user %>
 			
+ 	<%= link_to "favourite",   guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get" %>
+ 	<%= link_to "unfavourite", guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get" %>
+ <% end %> 
 
 				<div class="meta">
 				 

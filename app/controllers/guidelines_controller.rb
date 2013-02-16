@@ -18,7 +18,27 @@ class GuidelinesController < ApplicationController
     end
   end
 
+ def favourite
+   type = params[:type]
+   if type == "favourite"
+      @guideline= Guideline.find_by_id(params[:guideline_id])
+          current_user.favourite_guidelines.build(:guideline_id => @guideline.id).save
+           redirect_to :back, notice: 'You favourited #{@guideline.name}'
+      
 
+    elsif type == "unfavourite"
+      @guideline= Guideline.find_by_id(params[:guideline_id])
+     current_user.favourite_guidelines(:guideline_id => @guideline.id).destroy
+     redirect_to :back, notice: 'Unfavourited #{@guideline.name}'
+    
+    else
+    # Type missing, nothing happens
+   redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
+
+  
 
   def topic
 
