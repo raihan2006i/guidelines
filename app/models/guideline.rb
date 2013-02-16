@@ -2,9 +2,6 @@ class Guideline < ActiveRecord::Base
   attr_accessible :content, :hospital, :title, :subtitle, :user_id, :guideline_id
 
  belongs_to :user
- has_many :favourites, :dependent => :destroy
- has_many :favourited, :through => :favourites, :source => :user
- 
 
   validates :content, presence: true,
             length: {minimum:2}

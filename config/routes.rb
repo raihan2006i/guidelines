@@ -1,9 +1,6 @@
 Guidelines::Application.routes.draw do
 
-
-
-
-  get "user/index"
+  # get "user/index"
 
   ActiveAdmin.routes(self)
 
@@ -16,10 +13,6 @@ Guidelines::Application.routes.draw do
   get "guidelines/topichospital"
   get "about/about"
 
-
-
-
-
   devise_for :users
 
   devise_scope :user do
@@ -29,9 +22,7 @@ Guidelines::Application.routes.draw do
     get 'edit', to: 'devise/registrations#edit', as: :edit
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
     get 'about', to: 'about#about', as: :about
-
   end
-
 
   resources :guidelines
   get 'guidelines', to: 'guidelines#index', as: :guidelines
