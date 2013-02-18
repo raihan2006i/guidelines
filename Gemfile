@@ -12,6 +12,7 @@ gem 'activeadmin'
 gem 'cancan'
 gem 'recommendable'
 gem 'sidekiq'
+gem 'google-analytics-rails'
 
 group :test do
 	gem 'shoulda'
