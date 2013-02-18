@@ -3,7 +3,7 @@
 
 </div>
 
-<% if @guidelines %>
+<% if @guidelines.any? %>
 	<% @guidelines.each do |guideline| %>
 
 	<div class="guidelinerow">
@@ -41,6 +41,11 @@
 	 		</div>
 		
  <% end %> 
+
+<% if !@guidelines.any? %>
+
+ <h3>You haven't added any favourites yet?!  Get going..!</h3>
+ <% end %>
 
 				
 			

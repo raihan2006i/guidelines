@@ -14,7 +14,8 @@
 
 
   <%= f.input :title, label: 'Keyword (e.g. Asthma)' %>
-  <%= f.input :subtitle, label: 'Subtitle (e.g. for children)'%>
+  <%= f.input :subtitle, label: 'Subtitle (e.g. use of inhalers)'%>
+ <%= f.input :specialty, as: :select, collection: @specialties %>
   <%= f.input :hospital %>
   <%= f.input :content, as: :string, label: 'Link' %>
  

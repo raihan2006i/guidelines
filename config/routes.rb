@@ -14,6 +14,9 @@ Guidelines::Application.routes.draw do
   get "about/about"
   get "guidelines/favourite"
   get "favourites/show"
+  get "guidelines/listspecialty"
+  get "guidelines/topicspecialty"
+  match "specialty", to: "guidelines#listspecialty", as: :specialty
 
   devise_for :users
 
@@ -33,7 +36,7 @@ Guidelines::Application.routes.draw do
   get '/:id', to: 'profiles#show'
   get '/:id', to: 'favourites#show'
   get '/:id', to: 'guidelines#topic'
-
+  get '/:id', to: 'guidelines#topicspecialty'
 
   
 

@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>
 <div class="guidelinerow">
+
 	<div class="row">
 		
 			<div class="guideline span10">
-			  <%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>
+			  
 			<p>Title: <%= link_to @guideline.title, @guideline %> <% if ! @guideline.subtitle.blank?%>- <%= @guideline.subtitle %><% end %></p>
 			<strong> <a href="<%= @guideline.content %>", target = '_blank'>Link to guideline</a> </strong>
 			<p>Hospital Name: <%= @guideline.hospital %></p>
+			<p>Specialty: <%= @guideline.specialty %></p>
 
 			<% if @guideline.user %>
 			<p>Added by: <%= @guideline.user.profile_name %></p>

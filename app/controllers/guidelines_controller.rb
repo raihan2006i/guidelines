@@ -57,13 +57,9 @@ class GuidelinesController < ApplicationController
 
   def list
 
-    @guidelines = Guideline.order(:title)
-    @list=Array.new
-    @guidelines.each do |guideline|
-      if !@list.include?(guideline.title)
-        @list.push(guideline.title)
-      end
-    end
+
+
+    @list = Guideline.order(:title).uniq.pluck(:title)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -74,20 +70,34 @@ class GuidelinesController < ApplicationController
 
   def listhospital
 
-
-    @guidelines = Guideline.order(:hospital)
-    @list=Array.new
-    @guidelines.each do |guideline|
-      if !@list.include?(guideline.hospital)
-        @list.push(guideline.hospital)
-      end
-
-    end
+@list = Guideline.order(:hospital).uniq.pluck(:hospital)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @guidelines }
     end
+  end
+
+    def listspecialty
+
+@speclist = Guideline.order(:specialty).uniq.pluck(:specialty)
+    
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+  end
+
+   def topicspecialty
+
+    @guidelines = Guideline.find_all_by_specialty(params[:specialty])
+   
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+    
   end
 
   def topichospital
@@ -119,6 +129,7 @@ class GuidelinesController < ApplicationController
   # GET /guidelines/new.json
   def new
     @guideline = Guideline.new
+    @specialties = Guideline.order(:specialty).uniq.pluck(:specialty)
 
     respond_to do |format|
       format.html # new.html.erb

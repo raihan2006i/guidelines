@@ -1,5 +1,5 @@
 class Guideline < ActiveRecord::Base
-  attr_accessible :content, :hospital, :title, :subtitle, :user_id, :guideline_id
+  attr_accessible :content, :hospital, :title, :subtitle, :user_id, :guideline_id, :specialty
 
  belongs_to :user
  has_many :favourite_guidelines
@@ -20,6 +20,7 @@ class Guideline < ActiveRecord::Base
 validates_uniqueness_of :title, :scope => :hospital, :case_sensitive => false, :message => "There is already a guideline by this title for this hospital"
 
 validates :user_id, presence: true
+
 
 
 end
