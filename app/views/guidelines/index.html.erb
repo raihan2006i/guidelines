@@ -10,36 +10,48 @@
 
 <div class="guidelinerow">
 	<div class="row">
-		<div class="span8">	
-			<div class="guideline">
+		
+			<div class="guideline span10">
 			  
 			<p>Title: <%= link_to guideline.title, guideline %> <% if ! guideline.subtitle.blank?%>- <%= guideline.subtitle %><% end %></p>
 			<strong> <a href="<%= guideline.content %>">Link to guideline</a> </strong>
 			<p>Hospital Name: <%= guideline.hospital %></p>
+					<div class="meta">
+						 
+						  Created on <%= guideline.created_at.strftime("%d %b %Y") %>
+						 
+
+						  <span class="admin">
+
+						  	<% if guideline.user == current_user %>
+						   | <%= link_to "Edit", edit_guideline_path(guideline) %> 
+						   |
+						    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
+						    <% end %>
+						  </span>
+
+					</div>
+			</div>
+			<div class="span2">
 
 			<% if current_user %>
-			
- 	<%= link_to "favourite",   guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get" %>
- 	<%= link_to "unfavourite", guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get" %>
+				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
+ 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small main" do%>
+ 					<i class="icon icon-star"></i> Favourite
+ 					<% end %>
+ 				<% end %>
+ 			<% if current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
+ 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small main" do%>
+ 				<i class="icon-star-empty"></i> Unfavourite
+ 				<% end %>
+ 			<% end %>
+ 			</div>
+		
  <% end %> 
 
-				<div class="meta">
-				 
-				  Created on <%= guideline.created_at.strftime("%d %b %Y") %>
-				 
-
-				  <span class="admin">
-
-				  	<% if guideline.user == current_user %>
-				   | <%= link_to "Edit", edit_guideline_path(guideline) %> 
-				   |
-				    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
-				    <% end %>
-				  </span>
-
-				</div>
-			</div> 
-		</div>
+				
+			
+		
 	</div>
 </div>
 <% end %>

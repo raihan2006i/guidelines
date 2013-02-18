@@ -14,41 +14,51 @@
 
 
 <% @guidelines.each do |guideline| %>
-
 <div class="guidelinerow">
 	<div class="row">
 		
-		<div class="span8">	
-			<div class="guideline">
+			<div class="guideline span10">
+			  
+			<p>Title: <%= link_to guideline.title, guideline %> <% if ! guideline.subtitle.blank?%>- <%= guideline.subtitle %><% end %></p>
+			<strong> <a href="<%= guideline.content %>">Link to guideline</a> </strong>
+			<p>Hospital Name: <%= guideline.hospital %></p>
+					<div class="meta">
+						 
+						 
+						 
 
-			 <p>
+						  <span class="admin">
 
-  <b>Title:</b>
-  <%= link_to guideline.title, guideline %><% if ! guideline.subtitle.blank? %> - <%= guideline.subtitle %><%end %>
-</p>
+						  	<% if guideline.user == current_user %>
+						   | <%= link_to "Edit", edit_guideline_path(guideline) %> 
+						   |
+						    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
+						    <% end %>
+						  </span>
 
-<p>
-  <strong> <a href="<%= guideline.content %>">Link to guideline</a> </strong>
-</p>
+					</div>
+			</div>
+			<div class="span2">
 
-<p>
-  <b>Hospital:</b>
-  <%= guideline.hospital %>
-</p>
-<% if guideline.user %>
-<p>
-  <b>Added by:</b>
-  <%= guideline.user.profile_name %>
-
-</p>
-				  
-<% end %>
-
-				  
+			<% if current_user %>
+				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
+ 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small topic" do%>
+ 					<i class="icon icon-star"></i> Favourite
+ 					<% end %>
+ 				<% end %>
+ 			<% if current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
+ 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small topic" do%>
+ 				<i class="icon-star-empty"></i> Unfavourite
+ 				<% end %>
+ 			<% end %>
+ 			</div>
+		
+ <% end %> 
 
 				
-			</div> 
-		</div>
+			
+		
 	</div>
 </div>
+
 <% end %>

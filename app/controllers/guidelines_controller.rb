@@ -23,13 +23,14 @@ class GuidelinesController < ApplicationController
    if type == "favourite"
       @guideline= Guideline.find_by_id(params[:guideline_id])
           current_user.favourite_guidelines.build(:guideline_id => @guideline.id).save
-           redirect_to :back, notice: 'You favourited #{@guideline.name}'
+           redirect_to :back
       
 
     elsif type == "unfavourite"
       @guideline= Guideline.find_by_id(params[:guideline_id])
-     current_user.favourite_guidelines(:guideline_id => @guideline.id).destroy
-     redirect_to :back, notice: 'Unfavourited #{@guideline.name}'
+
+     current_user.favourite_guidelines.where(:guideline_id => @guideline.id).destroy_all
+     redirect_to :back
     
     else
     # Type missing, nothing happens
@@ -107,7 +108,6 @@ class GuidelinesController < ApplicationController
   # GET /guidelines/1.json
   def show
     @guideline = Guideline.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guideline }
