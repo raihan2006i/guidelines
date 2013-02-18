@@ -34,9 +34,7 @@ Guidelines::Application.routes.draw do
   get '/:id', to: 'favourites#show'
   get '/:id', to: 'guidelines#topic'
 
-  namespace :admin do 
-    resource :users
-  end
+
   
 
   
