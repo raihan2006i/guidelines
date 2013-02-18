@@ -9,12 +9,12 @@ ActiveAdmin.register AdminUser do
 
   filter :email                       
 
-  form do |f|                         
-    f.inputs "Admin Details" do       
-      f.input :email                  
-      f.input :password               
-      f.input :password_confirmation  
-    end                               
-    f.actions                         
-  end                                 
+
+  form do |f|
+    f.inputs "Admin Details" do
+      f.input :email
+    end
+    f.buttons
+  end
+end                                
 end                                   
