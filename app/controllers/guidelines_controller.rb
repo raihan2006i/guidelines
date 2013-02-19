@@ -10,7 +10,7 @@ class GuidelinesController < ApplicationController
   
   
   def index
-    @guidelines = Guideline.all
+    @guidelines = Guideline.order(:title).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -93,7 +93,7 @@ class GuidelinesController < ApplicationController
 
    def topicspecialty
 
-    @guidelines = Guideline.find_all_by_specialty(params[:specialty])
+    @guidelines = Guideline.order(:title).find_all_by_specialty(params[:specialty])
    
     respond_to do |format|
       format.html # index.html.erb
@@ -104,7 +104,7 @@ class GuidelinesController < ApplicationController
 
   def topichospital
 
-    @guidelines = Guideline.find_all_by_hospital(params[:hospital])
+    @guidelines = Guideline.order(:title).find_all_by_hospital(params[:hospital])
    
     respond_to do |format|
       format.html # index.html.erb
