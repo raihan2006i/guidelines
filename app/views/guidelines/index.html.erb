@@ -1,7 +1,11 @@
 
 
 <div class="page-header">
+	<% if @search %>
+	<h1>Search Results for "<%= params[:search] %>"</h1>
+	<% else %>
   <h1>All Guidelines</h1>
+  <% end %>
 </div>
 
 <%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>

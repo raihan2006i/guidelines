@@ -9,4 +9,6 @@ $ ->
 $ ->
 	$('.guidelinerow').hover (event) ->
 		$(this).toggleClass("hover")
+
 $('.dropdown-toggle').dropdown()
+
