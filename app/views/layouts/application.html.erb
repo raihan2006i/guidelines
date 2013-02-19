@@ -11,6 +11,10 @@
 function clearDefault(el) {
 if (el.defaultValue==el.value) el.value = ""
 }
+function clearText(thefield){
+if (thefield.defaultValue==thefield.value)
+thefield.value = ""
+}
 </script>
 </head>
 <body>
@@ -67,9 +71,9 @@ if (el.defaultValue==el.value) el.value = ""
 					
 				
 				<li class="nav pull-right">
-					<%= form_tag guidelines_path, :class => 'navbar-search pull-right', :method => :get do %>  
+					<%= form_tag guidelines_path, :class => 'navbar-search pull-right', :onSubmit=>"clearText(this)",:method => :get do %>  
 
-    <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder=>"Search", :ONFOCUS=>"clearDefault(this)", :onSubmit=>"cleartext()" %> <% end %></li>
+    <%= text_field_tag :search, params[:search], :class => 'search-query input-small', :placeholder=>"Search", :ONFOCUS=>"clearDefault(this)" %> <% end %></li>
 				</ul>
 		
 		</div>

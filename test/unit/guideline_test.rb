@@ -55,6 +55,7 @@ class GuidelineTest < ActiveSupport::TestCase
 	test "that a guideline's title and hospital combination is unique" do
 		guideline=Guideline.new
 		guideline.title = guidelines(:one).title
+		
 		guideline.hospital = guidelines(:one).hospital
 		assert !guideline.save
 		assert !guideline.errors[:title || :hospital].empty?

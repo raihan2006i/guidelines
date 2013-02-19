@@ -4552,7 +4552,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-fixed-top .navbar-inner,
 .navbar-fixed-bottom .navbar-inner {
-  padding-right: 0;
+  padding-right: 40;
   padding-left: 0;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;

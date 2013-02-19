@@ -151,6 +151,7 @@ class GuidelinesController < ApplicationController
   def edit
 
       @guideline = Guideline.find(params[:id])
+      @specialties = Guideline.order(:specialty).uniq.pluck(:specialty)
 
 
   end

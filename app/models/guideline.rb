@@ -17,12 +17,13 @@ class Guideline < ActiveRecord::Base
   validates :hospital, presence: true,
             length: {minimum:2}
 
-validates_uniqueness_of :title, :scope => :hospital, :case_sensitive => false, :message => "There is already a guideline by this title for this hospital"
+validates_uniqueness_of :hospital, :scope => :title, :case_sensitive => false, :message => "There is already a guideline by this title for this hospital"
 
 validates :user_id, presence: true
 searchable do
     text :title, :default_boost => 2
     text :subtitle
+    text :title_ngram, :as => 'title_ngram'
   end
 
 

@@ -30,7 +30,7 @@
 						  <span class="admin">
 
 						  	<% if guideline.user == current_user %>
-						   | <%= link_to "Edit", edit_guideline_path(guideline) %> 
+						    <%= link_to "Edit", edit_guideline_path(guideline) %> 
 						   |
 						    <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
 						    <% end %>
