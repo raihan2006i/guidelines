@@ -10,12 +10,20 @@ class GuidelinesController < ApplicationController
   
   
   def index
-    @guidelines = Guideline.order(:title).all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @guidelines }
+    if params[:search].present?
+    @search = Sunspot.search(Guideline) do  
+      fulltext params[:search]
     end
+
+    @guidelines = @search.results
+  else
+    @guidelines = Guideline.order(:title).all
+  end
+
+  respond_to do |format|
+    format.html # index.html.erb
+    format.json { render json: @guidelines }
+  end
   end
 
  def favourite

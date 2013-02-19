@@ -13,11 +13,13 @@ gem 'cancan'
 gem 'recommendable'
 gem 'sidekiq'
 gem 'google-analytics-rails'
+gem 'sunspot_rails', '~> 1.3.0'
 
 group :test do
 	gem 'shoulda'
 end
 group :development, :test do
+	gem 'sunspot_solr'
 	gem 'sqlite3'
 end
 
