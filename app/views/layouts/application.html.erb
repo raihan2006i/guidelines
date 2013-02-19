@@ -15,24 +15,51 @@
 				<%= link_to "Guidelines", guidelines_path, :class => 'brand' %>
 				
 				<ul class="nav">
+					 <li class="dropdown">
+   					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			      List guidelines by...
+			      <b class="caret"></b>
+			    </a>
+			    <ul class="dropdown-menu">
+			      
+			  </li>
 					
-					
-					<li class="<%= 'active' if current_page?(guidelines_list_path) %>"><%= link_to "By Topic", guidelines_list_path %></li>
-					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "By Hospital", guidelines_listhospital_path %></li>
-					<li class="<%= 'active' if current_page?(guidelines_listspecialty_path) %>"><%= link_to "By Specialty", guidelines_listspecialty_path %></li>
-					<li class="<%= 'active' if current_page?(guidelines_listhospital_path) %>"><%= link_to "Favourites", favourites_show_path %></li>
+					<li><%= link_to "...Topic", guidelines_list_path %></li>
+					<li><%= link_to "...Hospital", guidelines_listhospital_path %></li>
+					<li><%= link_to "...Specialty", guidelines_listspecialty_path %></li>
+				
 					
 				</ul>
+					<li><%= link_to "Favourites", favourites_show_path %></li>
 				<ul class="nav pull-right">
-					<li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About us", about_path %></li>
+
+					<li class="dropdown">
+   					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			      <% if user_signed_in? %>
+			      <%= current_user.first_name %>
+			      <% else %>
+			      Log in or Sign up
+			      <% end %>
+			      <b class="caret"></b>
+			    </a>
+			    <ul class="dropdown-menu">
+			      
+			  </li>
+					
 
 					<% if user_signed_in? %>
-					<li class="<%= 'active' if current_page?(edit_path) %>"><%= link_to current_user.first_name + "'s Profile", edit_path %></li>
+					<li ><%= link_to "Edit profile", edit_path %></li>
 					<li> <%= link_to "Log out", logout_path %></li>
 					<% else %>
-					<li><%= link_to "Register", register_path %></li>
 					<li><%= link_to "Log in", login_path %></li>
+					<li><%= link_to "Sign Up", register_path %></li>
+				
 					<% end %>
+					<li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About us", about_path %></li>
+				
+					
+				</ul>
+					
 				</ul>
 		
 		</div>
