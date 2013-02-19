@@ -9,3 +9,4 @@ $ ->
 $ ->
 	$('.guidelinerow').hover (event) ->
 		$(this).toggleClass("hover")
+

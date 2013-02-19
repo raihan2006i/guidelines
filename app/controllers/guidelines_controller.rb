@@ -89,6 +89,8 @@ class GuidelinesController < ApplicationController
     end
   end
 
+  
+
    def topicspecialty
 
     @guidelines = Guideline.find_all_by_specialty(params[:specialty])
