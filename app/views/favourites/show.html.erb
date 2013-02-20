@@ -3,56 +3,87 @@
 
 </div>
 
-<% if @guidelines.any? %>
+<% if !@guidelines.empty? %>
 	<% @guidelines.each do |guideline| %>
+		<div class="guidelinerow">
+		<div class="row">
+				<div class="guideline span10">
+						<%= link_to guideline.title, guideline %><br />
+						<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong><br />
+						Added <%=  time_ago_in_words(guideline.created_at) %> ago<br />
+						<span class="admin">
+								<% if guideline.user == current_user %>
+									<%= link_to "Edit", edit_guideline_path(guideline) %> 
+									| <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
 
-	<div class="guidelinerow">
-	<div class="row">
+								<% end %>
+						</span>
+				</div>
+				<div class="span2">
+					<% if current_user %>
+							
+	 								<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small" do%>
+	 								<i class="icon-star-empty"></i> Unfavourite
+	 			
+							
+	 						<% end %>
+	 						
+
+					<% end %>
+				</div>
+
+
+		</div>
+		</div>
+
+	<% end %>
+
+
+<% else %>
+<h3>Add some of your favourites to make a lovely home page for yourself...</h3>
+
+<% end %>
+
+
+
+					
+					
+
+					
+	 					
+	 				
+	 			
+	 			
+	 				
+					
+						
+						 
+						
+					
+
+			
+
+				
+
+	 		
 		
-			<div class="guideline span10">
-			  
-					 <%= link_to guideline.title, guideline %>
-					<br />
-					<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong>
-					<br />
-					Added <%=  time_ago_in_words(guideline.created_at) %> ago
 
-					<span class="admin">
-						<% if guideline.user == current_user %>
-						| <%= link_to "Edit", edit_guideline_path(guideline) %> 
-						| <%= link_to "Delete", guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
-						<% end %>
-					</span>
 
-			</div>
-			<div class="span2">
 
-				<% if current_user %>
-					<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
-	 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small" do%>
-	 					<i class="icon icon-star"></i> Favourite
-	 					<% end %>
-	 				<% end %>
-	 			<% if current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
-	 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small" do%>
-	 				<i class="icon-star-empty"></i> Unfavourite
-	 				<% end %>
-	 			<% end %>
-	 		</div>
-		
- <% end %> 
-
-<% if !@guidelines.any? %>
-
- <h3>You haven't added any favourites yet?!  Get going..!</h3>
- <% end %>
+ 
+ 
 
 				
 			
+	
+
 		
-	</div>
-</div>
 
-<% end %>		
-
-<% end %>
+	
+		
+			
+			  
+					
+ 
+					
+					

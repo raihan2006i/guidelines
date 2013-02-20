@@ -23,6 +23,7 @@ class GuidelinesController < ApplicationController
   respond_to do |format|
     format.html # index.html.erb
     format.json { render json: @guidelines }
+    format.xml  { render xml: @search }
   end
   end
 
@@ -131,6 +132,7 @@ class GuidelinesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guideline }
+
     end
   end
 
@@ -144,6 +146,7 @@ class GuidelinesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @guideline }
+
     end
   end
 

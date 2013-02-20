@@ -14,6 +14,7 @@ gem 'recommendable'
 gem 'sidekiq'
 gem 'google-analytics-rails'
 gem 'sunspot_rails', '~> 1.3.0'
+gem 'progress_bar'
 
 group :test do
 	gem 'shoulda'

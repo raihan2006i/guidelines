@@ -23,7 +23,7 @@ validates :user_id, presence: true
 searchable do
     text :title, :default_boost => 2
     text :subtitle
-    text :title_ngram, :as => 'title_ngram'
+  
   end
 
 
