@@ -1,7 +1,6 @@
 ActiveAdmin.register Guideline do
   index do                            
-    column :title  
-    column :subtitle    
+    column :title   
     column :specialty                
     column :content       
     column :hospital        

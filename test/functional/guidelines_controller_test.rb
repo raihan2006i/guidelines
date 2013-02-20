@@ -34,7 +34,7 @@ class GuidelinesControllerTest < ActionController::TestCase
   test "should create guideline when logged in" do
     sign_in users(:tessa)
     assert_difference('Guideline.count') do
-      post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:tessa).id }
+      post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:tessa).id, specialty: @guideline.specialty }
     end
 
     assert_redirected_to guideline_path(assigns(:guideline))
@@ -45,7 +45,7 @@ class GuidelinesControllerTest < ActionController::TestCase
     sign_in users(:tessa)
 
     assert_difference('Guideline.count') do
-      post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:fergal).id}
+      post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:fergal).id, specialty: @guideline.specialty}
     end
     assert_redirected_to guideline_path(assigns(:guideline))
     assert_equals assigns(:guideline).user_id, users(:fergal).id

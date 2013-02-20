@@ -13,8 +13,8 @@ class CustomRoutesTest < ActionDispatch::IntegrationTest
  		assert_redirected_to '/'
  	end
 
- 	test "that /register route opens the registration page" do
- 		get '/register'
+ 	test "that /signup route opens the registration page" do
+ 		get '/signup'
  		assert_response :success
  		
  	end

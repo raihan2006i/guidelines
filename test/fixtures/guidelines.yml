@@ -4,16 +4,19 @@ one:
   title: dkjghsljk
   content: fajgblnj
   hospital: febhlvsjh
+  specialty: paeds
   user: tessa
 
 two:
   title: Asthma
   content: MyText
   hospital: MyString
+  specialty: paeds
   user: tessa
 
 three:
   title: Glasses
   content: Great specs
   hospital: At Home
+  specialty: paeds
   user: fergal
