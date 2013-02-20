@@ -166,12 +166,16 @@ class GuidelinesController < ApplicationController
   # POST /guidelines.json
   def create
     @guideline = current_user.guidelines.new(params[:guideline])
+   
+   
 
     respond_to do |format|
       if @guideline.save
         format.html { redirect_to @guideline, notice: 'Guideline was successfully created.' }
         format.json { render json: @guideline, status: :created, location: @guideline }
       else
+      
+        @specialties = Guideline.order(:specialty).uniq.pluck(:specialty)
         format.html { render action: "new" }
         format.json { render json: @guideline.errors, status: :unprocessable_entity }
       end

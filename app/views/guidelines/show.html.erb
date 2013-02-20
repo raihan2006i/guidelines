@@ -9,7 +9,6 @@
 			<p>Title: <%= link_to @guideline.title, @guideline %> <% if ! @guideline.subtitle.blank?%>- <%= @guideline.subtitle %><% end %></p>
 			<strong> <a href="<%= @guideline.content %>", target = '_blank'>Link to guideline</a> </strong>
 			<p>Hospital Name: <%= @guideline.hospital %></p>
-			<p>Specialty: <%= @guideline.specialty %></p>
 
 			<% if @guideline.user %>
 			<p>Added by: <%= @guideline.user.profile_name %></p>
