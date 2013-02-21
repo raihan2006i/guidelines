@@ -31,7 +31,7 @@ Guidelines::Application.routes.draw do
 
   resources :guidelines
   get 'guidelines', to: 'guidelines#index', as: :guidelines
-  get 'guidelineslist', to: 'guidelines#index2', as: :guidelines
+
 
  
   root :to => 'guidelines#index'
