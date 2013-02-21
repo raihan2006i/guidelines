@@ -10,6 +10,7 @@ Guidelines::Application.routes.draw do
   get "guidelines/topic"
   get "guidelines/topichospital"
   get "guidelines/topicspecialty"
+  get "guidelines/favourite"
  
 
   devise_for :users

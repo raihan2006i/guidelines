@@ -41,12 +41,12 @@
 			<div class="span2">
 
 				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
- 					<%= link_to favourites_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small main" do%>
+ 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small main" do%>
  					<i class="icon icon-star"></i> Favourite
  					<% end %>
  				<% end %>
  				<% if current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
- 				<%= link_to favourites_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small main" do%>
+ 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small main" do%>
  				<i class="icon-star-empty"></i> Unfavourite
  				<% end %>
  			
