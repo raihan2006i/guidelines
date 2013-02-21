@@ -6,7 +6,7 @@
 		
 			<div class="guideline span10">
 			  
-			<p>Title: <%= link_to @guideline.title, @guideline %> <% if ! @guideline.subtitle.blank?%>- <%= @guideline.subtitle %><% end %></p>
+			<p>Title: <%= link_to @guideline.title, seeguideline_path(@guideline.title) %> <% if ! @guideline.subtitle.blank?%>- <%= @guideline.subtitle %><% end %></p>
 			<strong> <a href="<%= @guideline.content %>", target = '_blank'>Link to guideline</a> </strong>
 			<p>Hospital Name: <%= @guideline.hospital %></p>
 

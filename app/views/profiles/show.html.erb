@@ -7,7 +7,7 @@
 	<% @guidelines.each do |guideline| %>
 
 		<div class="well">
-			<%= link_to guideline.title, guideline %>
+			<%= link_to guideline.title, seeguideline_path(guideline.title) %>
 			<br />
 			<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong>
 			<br />
