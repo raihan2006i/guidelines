@@ -15,7 +15,7 @@ class ProfilesControllerTest < ActionController::TestCase
 	end
 
 	test "that variables are assigned on show page" do 
-		get :show, id: users(:testuser).profile_name
+		get :show, id: users(:fergal).profile_name
     	assert assigns (:user)
     	assert_not_empty assigns(:guidelines)
 
