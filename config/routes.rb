@@ -7,16 +7,10 @@ Guidelines::Application.routes.draw do
   devise_for :admin_user, ActiveAdmin::Devise.config
 
   get "profiles/show"
-  get "guidelines/list"
   get "guidelines/topic"
-  get "guidelines/listhospital"
   get "guidelines/topichospital"
-  get "about/about"
-  get "guidelines/favourite"
-  get "favourites/show"
-  get "guidelines/listspecialty"
   get "guidelines/topicspecialty"
-  match "specialty", to: "guidelines#listspecialty", as: :specialty
+ 
 
   devise_for :users
 
@@ -31,7 +25,10 @@ Guidelines::Application.routes.draw do
 
   resources :guidelines
   get 'guidelines', to: 'guidelines#index', as: :guidelines
-  get 'favourites', to: "favourites/show", as: :favourites
+  get 'favourites', to: "favourites#show", as: :favourites
+  get 'topics', to: 'guidelines#list', as: :topics
+  get 'hospitals', to: 'guidelines#listhospital', as: :hospitals
+  get 'specialties', to: 'guidelines#listspecialty', as: :specialties
 
 
  
@@ -39,10 +36,6 @@ Guidelines::Application.routes.draw do
 
 
 
-  get '/:id', to: 'profiles#show'
- 
-  get '/:id', to: 'guidelines#topic'
-  get '/:id', to: 'guidelines#topicspecialty'
 
   
 

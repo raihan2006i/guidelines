@@ -37,13 +37,13 @@ function clearText(){
 			      
 			  </li>
 					
-					<li><%= link_to "...Topic", guidelines_list_path %></li>
-					<li><%= link_to "...Hospital", guidelines_listhospital_path %></li>
-					<li><%= link_to "...Specialty", guidelines_listspecialty_path %></li>
+					<li><%= link_to "...Topic", topics_path %></li>
+					<li><%= link_to "...Hospital", hospitals_path %></li>
+					<li><%= link_to "...Specialty", specialties_path %></li>
 				
 				<% if user_signed_in? %>
 				</ul>
-					<li><%= link_to "Favourites", favourites_show_path %></li>
+					<li><%= link_to "Favourites", favourites_path %></li>
 				</ul>
 				<% else %>	
 				</ul>
