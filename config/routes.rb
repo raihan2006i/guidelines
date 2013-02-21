@@ -33,8 +33,9 @@ Guidelines::Application.routes.draw do
 
  
   root :to => 'guidelines#index'
-  get '/:id', to: 'profiles#show'
-  
+  get '/:id', to: 'profiles#show', as: :myprofile
+
+
 
 
 

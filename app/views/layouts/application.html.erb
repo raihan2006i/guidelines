@@ -69,7 +69,7 @@ function clearText(){
 					<% if user_signed_in? %>
 					<li ><%= link_to "Edit profile", edit_path %></li>
 					<li> <%= link_to "Log out", logout_path %></li>
-					<li> <%= link_to "My additions", profiles_show_path %></li>
+					<li> <%= link_to "My additions", myprofile_path(id: current_user.profile_name) %></li>
 					<% else %>
 					<li><%= link_to "Log in", login_path %></li>
 					<li><%= link_to "Sign Up", register_path %></li>
