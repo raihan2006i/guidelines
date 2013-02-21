@@ -22,7 +22,7 @@
 				<div class="span2">
 					<% if current_user %>
 							
-	 								<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small" do%>
+	 								<%= link_to favourites_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small" do%>
 	 								<i class="icon-star-empty"></i> Unfavourite
 	 			
 							
