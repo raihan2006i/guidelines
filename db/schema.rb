@@ -53,20 +53,11 @@ ActiveRecord::Schema.define(:version => 20130218080106) do
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "favorite_guidelines", ["user_id", "guideline_id"], :name => "index_favorite_guidelines_on_user_id_and_guideline_id"
-
   create_table "favourite_guidelines", :force => true do |t|
     t.integer  "user_id"
     t.integer  "guideline_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "favourites", :force => true do |t|
-    t.string   "user"
-    t.string   "guideline"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "guidelines", :force => true do |t|

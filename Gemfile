@@ -1,7 +1,6 @@
-
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -19,6 +18,7 @@ gem 'progress_bar'
 group :test do
 	gem 'shoulda'
 end
+
 group :development, :test do
 	gem 'sunspot_solr'
 	gem 'sqlite3'
@@ -27,6 +27,7 @@ end
 group :production do
 	gem 'pg'
 end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -54,4 +55,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'capistrano'
 
 # To use debugger
-#gem 'debugger'
+# gem 'debugger'

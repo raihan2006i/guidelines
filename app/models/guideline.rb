@@ -20,11 +20,9 @@ class Guideline < ActiveRecord::Base
 validates_uniqueness_of :hospital, :scope => :title, :case_sensitive => false, :message => "There is already a guideline by this title for this hospital"
 
 validates :user_id, presence: true
-searchable do
-    text :title, :default_boost => 2
-    text :subtitle
-  
-  end
 
+searchable do
+  text :title
+end
 
 end
