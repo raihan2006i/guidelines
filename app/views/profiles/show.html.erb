@@ -9,7 +9,7 @@
 		<div class="well">
 			<%= link_to guideline.title, guideline %>
 			<br />
-			<%= guideline.content %>
+			<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong>
 			<br />
 			Added <%=  time_ago_in_words(guideline.created_at) %> ago
 		</div>

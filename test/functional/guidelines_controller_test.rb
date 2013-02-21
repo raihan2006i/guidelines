@@ -18,7 +18,7 @@ class GuidelinesControllerTest < ActionController::TestCase
   end
 
   test "should render the new page when logged in" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     get :new
     assert_response :success
 
@@ -32,24 +32,16 @@ class GuidelinesControllerTest < ActionController::TestCase
   end
 
   test "should create guideline when logged in" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     assert_difference('Guideline.count') do
-      post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:tessa).id, specialty: @guideline.specialty }
+      post :create, guideline: { content: "This is the content", hospital: "Children's hospital", title: "My guideline", specialty: "Children", user_id: users(:testuser).id }
     end
 
     assert_redirected_to guideline_path(assigns(:guideline))
     
   end
 
-  test "should create guideline for the current user when logged in" do
-    sign_in users(:tessa)
 
-    assert_difference('Guideline.count') do
-      post :create, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:fergal).id, specialty: @guideline.specialty}
-    end
-    assert_redirected_to guideline_path(assigns(:guideline))
-    assert_equals assigns(:guideline).user_id, users(:fergal).id
-  end
 
   test "should show guideline" do
     get :show, id: @guideline
@@ -57,7 +49,7 @@ class GuidelinesControllerTest < ActionController::TestCase
   end
 
   test "should get edit when logged in" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     get :edit, id: @guideline
     assert_response :success
   end
@@ -74,29 +66,29 @@ class GuidelinesControllerTest < ActionController::TestCase
 
 
   test "should update guideline when logged in" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     put :update, id: @guideline, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title }
     assert_redirected_to guideline_path(assigns(:guideline))
   end
 
    test "should update guideline for the current user when logged in" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     put :update, id: @guideline, guideline: { content: @guideline.content, hospital: @guideline.hospital, title: @guideline.title, user_id: users(:fergal).id }
     assert_redirected_to guideline_path(assigns(:guideline))
-    assert_equal assigns(:guideline).user_id, users(:tessa).id
+    assert_equal assigns(:guideline).user_id, users(:testuser).id
   end
 
   test "should get edit when logged in by current user" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     get :edit, id: @guideline
     assert_response :success
-    assert_equal assigns(:guideline).user_id, users(:tessa).id
+    assert_equal assigns(:guideline).user_id, users(:testuser).id
   end
 
   
 
   test "should not update guideline if nothing has changed" do
-    sign_in users(:tessa)
+    sign_in users(:testuser)
     put :update, id: @guideline
     assert_redirected_to guideline_path(assigns(:guideline))
     
