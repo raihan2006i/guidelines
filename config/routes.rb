@@ -31,6 +31,7 @@ Guidelines::Application.routes.draw do
 
   resources :guidelines
   get 'guidelines', to: 'guidelines#index', as: :guidelines
+  get 'favourites', to: "favourites/show", as: :favourites
 
 
  

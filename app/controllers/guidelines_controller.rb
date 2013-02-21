@@ -10,22 +10,20 @@ class GuidelinesController < ApplicationController
   
   
   def index
-
-
     if params[:search].present?
     @search = Sunspot.search(Guideline) do  
       fulltext params[:search]
     end
     @guidelines = @search.results
   else
-    redirect_to favourites_show_path, :action => 'index' and return if current_user
+    
     @guidelines = Guideline.order(:title).all
   end
 
   respond_to do |format|
     format.html # index.html.erb
     format.json { render json: @guidelines }
-    format.xml  { render xml: @search }
+  
   end
   end
 
