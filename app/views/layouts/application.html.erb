@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	
 	<%= analytics_init if Rails.env.production? %>
   <title>Guidelines for Me</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -69,7 +68,7 @@ function clearText(){
 					<% if user_signed_in? %>
 					<li ><%= link_to "Edit profile", edit_path %></li>
 					<li> <%= link_to "Log out", logout_path %></li>
-					<li> <%= link_to "My additions", myprofile_path(id: current_user.profile_name) %></li>
+					<li> <%= link_to "My additions", profiles_show_path(id: current_user.profile_name) %></li>
 					<% else %>
 					<li><%= link_to "Log in", login_path %></li>
 					<li><%= link_to "Sign Up", register_path %></li>
