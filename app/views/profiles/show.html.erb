@@ -9,7 +9,7 @@
 		<div class="guidelinerow">
 		<div class="row">
 				<div class="guideline span10">
-						<%= link_to guideline.title, guideline %><br />
+						<%= link_to guideline.title, seeguideline_path(guideline.title) %><br />
 						<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong><br />
 						Added <%=  time_ago_in_words(guideline.created_at) %> ago<br />
 						<span class="admin">
