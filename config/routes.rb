@@ -6,7 +6,7 @@ Guidelines::Application.routes.draw do
 
   devise_for :admin_user, ActiveAdmin::Devise.config
 
-  get "profiles/show"
+
   get "guidelines/topic"
   get "guidelines/topichospital"
   get "guidelines/topicspecialty"
@@ -33,7 +33,8 @@ Guidelines::Application.routes.draw do
 
  
   root :to => 'guidelines#index'
-  get '/:id', 'profiles#show'
+  get '/:id', to: 'profiles#show'
+  
 
 
 
