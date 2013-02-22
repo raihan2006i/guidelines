@@ -15,6 +15,7 @@ gem 'google-analytics-rails'
 gem 'sunspot_rails', '~> 1.3.0'
 gem 'progress_bar'
 
+
 group :test do
 	gem 'shoulda'
 end
@@ -33,6 +34,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'friendly_id'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

@@ -1,4 +1,9 @@
 class Guideline < ActiveRecord::Base
+
+	def to_param
+		"#{id} #{title}".parameterize
+	end
+
   attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty
 
  belongs_to :user

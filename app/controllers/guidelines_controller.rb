@@ -128,7 +128,8 @@ class GuidelinesController < ApplicationController
   # GET /guidelines/1
   # GET /guidelines/1.json
   def show
-    @guideline = Guideline.where(title: params[:title]).first
+    @guideline = Guideline.find(params[:id])
+ 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guideline }

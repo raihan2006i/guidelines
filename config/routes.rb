@@ -12,6 +12,7 @@ Guidelines::Application.routes.draw do
   get "guidelines/topicspecialty"
   get "guidelines/favourite"
   get "profiles/show"
+  get "guidelines/show"
  
 
   devise_for :users
@@ -35,7 +36,7 @@ Guidelines::Application.routes.draw do
 
  
   root :to => 'guidelines#index'
-  get '/:title', to: 'guidelines#show', as: :seeguideline
+
 
 
 
