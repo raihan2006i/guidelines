@@ -14,6 +14,8 @@ gem 'sidekiq'
 gem 'google-analytics-rails'
 gem 'sunspot_rails', '~> 1.3.0'
 gem 'progress_bar'
+gem 'kaminari'
+
 
 
 group :test do

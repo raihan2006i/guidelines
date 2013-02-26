@@ -17,7 +17,7 @@ class GuidelinesController < ApplicationController
     @guidelines = @search.results
   else
     
-    @guidelines = Guideline.order(:title).all
+    @guidelines = Guideline.order(:title).page(params[:page]).per(5)
   end
 
   respond_to do |format|
