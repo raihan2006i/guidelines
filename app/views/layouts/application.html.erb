@@ -23,8 +23,12 @@ function clearText(){
 
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
-		
+		<% if Guideline.count % 100 ==0 %>
+			<%= link_to "#{Guideline.count}" " guidelines available - yay!", guidelines_path, :class => 'brand' %>
+		<% else %>
+
 				<%= link_to "#{Guideline.count}" " guidelines available!", guidelines_path, :class => 'brand' %>
+		<% end %>
 				
 				<ul class="nav">
 					 <li class="dropdown">
