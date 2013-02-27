@@ -21,6 +21,9 @@
  %></p>
 			<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong>
 			<p>Hospital Name: <%= guideline.hospital %></p>
+			<% if guideline.specialty %>
+				<p>Specialty: <%= guideline.specialty %></p>
+			<% end %>
 					<div class="meta">
 						 
 						  

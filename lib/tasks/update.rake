@@ -7,3 +7,5 @@ namespace :update do
     end
   end
 end
+
+#heroku run rake update:specialty_fix
