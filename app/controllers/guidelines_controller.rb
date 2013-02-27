@@ -17,7 +17,7 @@ class GuidelinesController < ApplicationController
     @guidelines = @search.results
   else
    
-    @guidelines = Guideline.order(:title).page(params[:page]).per(5)
+    @guidelines = Guideline.order(:title).page(params[:page]).per(15)
 
 
   end
@@ -190,14 +190,13 @@ class GuidelinesController < ApplicationController
   # PUT /guidelines/1
   # PUT /guidelines/1.json
   def update
-    @guideline = current_user.guidelines.find(params[:id])
 
-    if params[:guideline] && params[:guideline].has_key?(:user_id)
-        params[:guideline].delete(:user_id) 
-    end
+    @guideline = Guideline.find(params[:id])
+
     
     respond_to do |format|
       if @guideline.update_attributes(params[:guideline])
+        
         format.html { redirect_to @guideline, notice: 'Guideline was successfully updated.' }
         format.json { head :no_content }
       else
