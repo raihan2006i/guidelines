@@ -19,6 +19,7 @@ class GuidelinesController < ApplicationController
    
     @guidelines = Guideline.order(:title).page(params[:page]).per(5)
 
+
   end
 
   respond_to do |format|
