@@ -66,9 +66,9 @@ class GuidelinesController < ApplicationController
 
   def list
 
+@list = Kaminari.paginate_array(Guideline.order(:title).uniq.pluck(:title)).page(params[:page]).per(1)
 
-
-    @list = Guideline.order(:title).uniq.pluck(:title)
+  
 
     respond_to do |format|
       format.html # index.html.erb
