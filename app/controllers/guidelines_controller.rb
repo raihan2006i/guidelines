@@ -27,6 +27,7 @@ class GuidelinesController < ApplicationController
   end
   end
 
+  
  def favourite
    type = params[:type]
    if type == "favourite"

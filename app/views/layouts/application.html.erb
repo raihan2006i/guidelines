@@ -24,7 +24,7 @@ function clearText(){
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 		
-				<%= link_to "Guidelines", guidelines_path, :class => 'brand' %>
+				<%= link_to "#{Guideline.count}" " guidelines available!", guidelines_path, :class => 'brand' %>
 				
 				<ul class="nav">
 					 <li class="dropdown">
@@ -49,6 +49,7 @@ function clearText(){
 					<li><%= link_to "Favourites", register_path %></li>
 				</ul>
 				<% end %>
+
 				<ul class="nav pull-right">
 
 					<li class="dropdown">
