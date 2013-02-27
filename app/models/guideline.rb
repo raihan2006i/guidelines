@@ -30,4 +30,8 @@ searchable do
   text :title
 end
 
+ before_save do |guideline|
+      guideline.content = "http://#{content}" unless guideline.content=~/^https?:\/\//
+  end 
+
 end
