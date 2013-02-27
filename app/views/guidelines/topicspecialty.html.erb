@@ -1,8 +1,9 @@
 
 <% @guidelines.each_with_index do |guideline, index| %>
+
 <div class="page-header">
 	<% if index==0 %>
-	<h1><%= guideline.specialty %> Guidelines</h1>
+	<h1><%= guideline.specialty %> Guidelines  - <%= @speccount %> in total</h1>
 	
 	<% end %>
 

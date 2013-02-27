@@ -56,7 +56,7 @@ class GuidelinesController < ApplicationController
   def topic
 
     @guidelines = Guideline.find_all_by_title(params[:title])
-
+  @speccount = @guidelines.count
     
    
     respond_to do |format|
@@ -93,6 +93,7 @@ class GuidelinesController < ApplicationController
     def listspecialty
 
 @speclist = Guideline.order(:specialty).uniq.pluck(:specialty)
+
     
 
     respond_to do |format|
@@ -106,7 +107,7 @@ class GuidelinesController < ApplicationController
    def topicspecialty
 
     @guidelines = Guideline.order(:title).find_all_by_specialty(params[:specialty])
-   
+   @speccount = @guidelines.count
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @guidelines }
@@ -117,7 +118,7 @@ class GuidelinesController < ApplicationController
   def topichospital
 
     @guidelines = Guideline.order(:title).find_all_by_hospital(params[:hospital])
-   
+   @speccount = @guidelines.count
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @guidelines }
