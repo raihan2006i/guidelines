@@ -14,11 +14,11 @@
 			<% end %>
 
 			<% if @created %>
-			<p>Added by: <%= @created %></p>
+			<p><i>Added by: <%= @created %> on <%= @guideline.created_at.strftime("%d %b %Y") %></i></p>
 			<% end %>
 
 			<% if @updated && (@created != @updated) %>
-			<p>Updated by: <%= @updated %></p>
+			<p><i>Updated by: <%= @updated %> on <%= @guideline.updated_at.strftime("%d %b %Y") %></i></p>
 			<% end %>
 					<div class="meta">
 						 
