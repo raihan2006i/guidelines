@@ -16,7 +16,8 @@
 			<% if @created %>
 			<p>Added by: <%= @created %></p>
 			<% end %>
-			<% if @updated %>
+
+			<% if @updated && (@created != @updated) %>
 			<p>Updated by: <%= @updated %></p>
 			<% end %>
 					<div class="meta">
