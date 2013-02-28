@@ -133,6 +133,13 @@ class GuidelinesController < ApplicationController
   # GET /guidelines/1.json
   def show
     @guideline = Guideline.find(params[:id])
+    if @guideline.updated_by
+     @updated = User.find(@guideline.updated_by).profile_name
+   end
+
+      if User.find(@guideline.user_id)
+     @created = User.find(@guideline.user_id).profile_name
+      end
  
     respond_to do |format|
       format.html # show.html.erb
@@ -196,6 +203,7 @@ class GuidelinesController < ApplicationController
     
     respond_to do |format|
       if @guideline.update_attributes(params[:guideline])
+        @guideline.update_attribute(:updated_by, current_user.id)
         
         format.html { redirect_to @guideline, notice: 'Guideline was successfully updated.' }
         format.json { head :no_content }

@@ -4,7 +4,7 @@ class Guideline < ActiveRecord::Base
 		"#{id} #{title}".parameterize
 	end
 
-  attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty
+  attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty, :updated_by, :current_user, :subtitle, :slug
 
  belongs_to :user
  has_many :favourite_guidelines

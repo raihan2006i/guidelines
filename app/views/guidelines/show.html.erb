@@ -13,8 +13,11 @@
 				<p>Specialty: <%= @guideline.specialty %></p>
 			<% end %>
 
-			<% if @guideline.user %>
-			<p>Added by: <%= @guideline.user.profile_name %></p>
+			<% if @created %>
+			<p>Added by: <%= @created %></p>
+			<% end %>
+			<% if @updated %>
+			<p>Updated by: <%= @updated %></p>
 			<% end %>
 					<div class="meta">
 						 
@@ -23,7 +26,7 @@
 
 						  <span class="admin">
 
-						  	<% if @guideline.user == current_user %>
+						  	<% if current_user %>
 						    <%= link_to "Edit", edit_guideline_path(@guideline) %> 
 						   |
 						    <%= link_to "Delete", @guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
