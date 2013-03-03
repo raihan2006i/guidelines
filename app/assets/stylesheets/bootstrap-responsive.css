@@ -8,6 +8,7 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+
 @-ms-viewport {
   width: device-width;
 }
@@ -1090,3 +1091,5 @@
     overflow: visible !important;
   }
 }
+
+.navbar-fixed-top (padding-bottom: 80px;)
