@@ -26,6 +26,13 @@ function clearText(){
 
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+       			<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      			</a>
+
 			<% if Guideline.count % 100 ==0 %>
 				<%= link_to "#{Guideline.count}" " guidelinesforme available - yay!", guidelines_path, :class => 'brand' %>
 			<% else %>
@@ -34,19 +41,13 @@ function clearText(){
 			<% end %>
 		 
 
-		 	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      	</a>
-
-
+		 	
 	<div class="nav-collapse collapse">
 
 			<ul class="nav">
 					<li class="dropdown">
    					 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			      		List guidelines by...
+			      		List by...
 			      		<b class="caret"></b>
 			    		</a>
 			    	
@@ -83,7 +84,6 @@ function clearText(){
 			      	<% if user_signed_in? %>
 						<li ><%= link_to "Edit profile", edit_path %></li>
 						<li> <%= link_to "Log out", logout_path %></li>
-						<li> <%= link_to "My additions", profiles_show_path(id: current_user.profile_name) %></li>
 					<% else %>
 						<li><%= link_to "Log in", login_path %></li>
 						<li><%= link_to "Sign Up", register_path %></li>
@@ -100,6 +100,7 @@ function clearText(){
 
     				<%= text_field_tag :search, params[:search], :class => 'search-query input-small', :placeholder=>"Search", :ONFOCUS=>"clearDefault(this)" %> <% end %></li>
 			</ul>
+		</div>
 		</div>
 		</div>
 	</div>
