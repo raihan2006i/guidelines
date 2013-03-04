@@ -185,6 +185,7 @@ class GuidelinesController < ApplicationController
       if @guideline.save
         format.html { redirect_to @guideline, notice: 'Guideline was successfully created.' }
         format.json { render json: @guideline, status: :created, location: @guideline }
+        
       else
       
         @specialties = Guideline.order(:specialty).uniq.pluck(:specialty)
@@ -204,7 +205,6 @@ class GuidelinesController < ApplicationController
     respond_to do |format|
       if @guideline.update_attributes(params[:guideline])
         @guideline.update_attribute(:updated_by, current_user.id)
-        
         format.html { redirect_to @guideline, notice: 'Guideline was successfully updated.' }
         format.json { head :no_content }
       else

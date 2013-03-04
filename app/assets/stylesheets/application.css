@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+
 table.table td a {width: 920px; display:block; text-decoration:none;}
 
 
@@ -43,4 +44,6 @@ body{
 .span1 img{
 	padding-top: 20px;
 }
+
+
 
