@@ -69,7 +69,7 @@ class GuidelinesController < ApplicationController
 
   def list
 
-@list = Kaminari.paginate_array(Guideline.order(:title).uniq.pluck(:title)).page(params[:page]).per(1)
+@list = Kaminari.paginate_array(Guideline.order(:title).uniq.pluck(:title)).page(params[:page]).per(20)
 
   
 
