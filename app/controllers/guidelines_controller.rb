@@ -108,7 +108,6 @@ class GuidelinesController < ApplicationController
 
     @guidelines =  Guideline.order(:title).find_all_by_specialty(params[:specialty])
    @speccount = @guidelines.count
-   @guidelines = @guidelines).page(params[:page]).per(1)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @guidelines }
