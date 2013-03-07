@@ -40,7 +40,7 @@
 	      	</a>
 
 					<% if Guideline.count % 100 ==0 %>
-						<%= link_to "#{Guideline.count}" " guidelinesforme - yay!", guidelines_path, :class => 'brand' %>
+						<%= link_to "#{Guideline.all.count}" " guidelinesforme - yay!", guidelines_path, :class => 'brand' %>
 					<% else %>
 						<%= link_to "#{Guideline.count}" " guidelinesforme!", guidelines_path, :class => 'brand' %>
 					<% end %>
