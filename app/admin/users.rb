@@ -1,3 +1,3 @@
 ActiveAdmin.register User do
- User.all.count
+  # User.all.count
 end

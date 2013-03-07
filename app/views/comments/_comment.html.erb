@@ -4,7 +4,7 @@
 	
 	<%= comment.body %>
 <i>
-	(By <%= comment.commenter %> on <%= comment.created_at.strftime("%d %b %Y") %>)</i>
+	(By <%= comment.commenter.full_name %> on <%= comment.created_at.strftime("%d %b %Y") %>)</i>
 
 
   <%= link_to 'Delete', [comment.guideline, comment],

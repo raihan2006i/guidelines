@@ -54,6 +54,7 @@ GEM
     celluloid (0.12.4)
       facter (>= 1.6.12)
       timers (>= 1.0.0)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -103,6 +104,7 @@ GEM
       activesupport (~> 3.1)
       polyamorous (~> 0.5.0)
     metaclass (0.0.1)
+    method_source (0.8.1)
     mime-types (1.21)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
@@ -119,6 +121,12 @@ GEM
     progress_bar (0.4.0)
       highline (~> 1.6.1)
       options (~> 2.3.0)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.2.2)
+      pry (>= 0.9.10)
     public_activity (1.0.3)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
@@ -181,6 +189,7 @@ GEM
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    slop (3.4.3)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -222,6 +231,7 @@ DEPENDENCIES
   kaminari
   pg
   progress_bar
+  pry-rails
   public_activity
   rails (= 3.2.12)
   recommendable

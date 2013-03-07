@@ -7,6 +7,7 @@ class CreateComments < ActiveRecord::Migration
 
       t.timestamps
     end
+    
     add_index :comments, :guideline_id
   end
 end

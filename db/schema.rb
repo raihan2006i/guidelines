@@ -63,29 +63,8 @@ ActiveRecord::Schema.define(:version => 20130307101348) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "audits", :force => true do |t|
-    t.integer  "auditable_id"
-    t.string   "auditable_type"
-    t.integer  "associated_id"
-    t.string   "associated_type"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.string   "username"
-    t.string   "action"
-    t.text     "audited_changes"
-    t.integer  "version",         :default => 0
-    t.string   "comment"
-    t.string   "remote_address"
-    t.datetime "created_at"
-  end
-
-  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
-  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
-  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
-  add_index "audits", ["user_id", "user_type"], :name => "user_index"
-
   create_table "comments", :force => true do |t|
-    t.string   "commenter"
+    t.integer  "commenter_id"
     t.text     "body"
     t.integer  "guideline_id"
     t.datetime "created_at",   :null => false
@@ -94,27 +73,11 @@ ActiveRecord::Schema.define(:version => 20130307101348) do
 
   add_index "comments", ["guideline_id"], :name => "index_comments_on_guideline_id"
 
-  create_table "favorite_guidelines", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "guideline_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "favorite_guidelines", ["user_id", "guideline_id"], :name => "index_favorite_guidelines_on_user_id_and_guideline_id"
-
   create_table "favourite_guidelines", :force => true do |t|
     t.integer  "user_id"
     t.integer  "guideline_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "favourites", :force => true do |t|
-    t.string   "user"
-    t.string   "guideline"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "guidelines", :force => true do |t|
@@ -124,16 +87,14 @@ ActiveRecord::Schema.define(:version => 20130307101348) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.string   "subtitle"
     t.string   "specialty"
-    t.string   "slug"
     t.integer  "updated_by"
     t.string   "comments"
   end
 
-  add_index "guidelines", ["slug"], :name => "index_guidelines_on_slug"
+  add_index "guidelines", ["comments"], :name => "index_guidelines_on_comments"
   add_index "guidelines", ["specialty"], :name => "index_guidelines_on_specialty"
-  add_index "guidelines", ["subtitle"], :name => "index_guidelines_on_subtitle"
+  add_index "guidelines", ["updated_by"], :name => "index_guidelines_on_updated_by"
   add_index "guidelines", ["user_id"], :name => "index_guidelines_on_user_id"
 
   create_table "hospitals", :force => true do |t|
