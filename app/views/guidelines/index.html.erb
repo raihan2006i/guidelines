@@ -21,8 +21,13 @@
 			  
 			<p>Title: <%= link_to guideline.title, guideline
  %></p>
+ 			<% if guideline.comments %>
+			<p> N.B. <%= guideline.comments %></p>
+			<% end %>
 			<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong>
-			<p>Hospital Name: <%= guideline.hospital %></p>
+			
+			<p>Organisation: <%= guideline.hospital %></p>
+			
 			<% if guideline.specialty %>
 				<p>Specialty: <%= guideline.specialty %></p>
 			<% end %>

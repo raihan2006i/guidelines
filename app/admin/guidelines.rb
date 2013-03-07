@@ -4,7 +4,8 @@ ActiveAdmin.register Guideline do
     column :specialty                
     column :content       
     column :hospital        
-    column :user   
+    column :user
+    column :comments   
 
     default_actions                   
   end
