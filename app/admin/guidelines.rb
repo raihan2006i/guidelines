@@ -1,4 +1,5 @@
 ActiveAdmin.register Guideline do
+	
   index do                            
     column :title   
     column :specialty                
@@ -9,4 +10,6 @@ ActiveAdmin.register Guideline do
 
     default_actions                   
   end
+
+
 end

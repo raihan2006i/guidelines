@@ -1,5 +1,7 @@
 Guidelines::Application.routes.draw do
 
+  get "activities/index"
+
   # get "user/index"
 
   ActiveAdmin.routes(self)
@@ -34,10 +36,13 @@ Guidelines::Application.routes.draw do
   get 'specialties', to: 'guidelines#listspecialty', as: :specialties
 
 
- 
+ resources :activities
+
   root :to => 'guidelines#index'
 
-
+resources :guidelines do
+  resources :comments
+end
 
 
 

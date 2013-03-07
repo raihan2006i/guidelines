@@ -1,0 +1,15 @@
+
+<table class="table table-bordered">					 
+<p>
+	
+	<%= comment.body %>
+<i>
+	(By <%= comment.commenter %> on <%= comment.created_at.strftime("%d %b %Y") %>)</i>
+
+
+  <%= link_to 'Delete', [comment.guideline, comment],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>
+
+</table>

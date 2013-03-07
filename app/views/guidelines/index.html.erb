@@ -21,9 +21,7 @@
 			  
 			<p>Title: <%= link_to guideline.title, guideline
  %></p>
- 			<% if guideline.comments %>
-			<p> N.B. <%= guideline.comments %></p>
-			<% end %>
+ 			
 			<strong> <a href="<%= guideline.content %>" target = '_blank'>Link to guideline</a> </strong>
 			
 			<p>Organisation: <%= guideline.hospital %></p>
@@ -57,12 +55,21 @@
  					<% end %>
  				<% end %>
  				<% if current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
- 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small main" do%>
- 				<i class="icon-star-empty"></i> Unfavourite
+ 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small btn-danger main" do%>
+ 				<i class="icon-star-empty icon-white"></i> Unfavourite
  				<% end %>
  			
  			
  			<% end %>
+
+ 			<% if guideline.comments.any? %>
+ 					<%= link_to guideline, class: "btn btn-small btn-primary main" do%><%= guideline.comments.count %> comments <% end %>
+ 			<% else %>
+ 					<%= link_to guideline, class: "btn btn-inverse btn-small main" do%>Add a comment
+ 					<% end %>
+ 			<% end %>
+
+ 			
 		</div>
  <% end %> 
 

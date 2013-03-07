@@ -18,6 +18,7 @@ gem 'kaminari'
 gem 'public_activity'
 
 
+
 group :test do
 	gem 'shoulda'
 end

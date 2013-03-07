@@ -1,0 +1,10 @@
+<h1>Activities</h1>
+
+<% @activities.each do |activity| %>
+	<div class="activity">
+		<%= link_to activity.owner.profile_name, activity.owner if activity.owner %>
+		added guidelines to <%= link_to activity.trackable.guideline.title, activity.trackable.guideline %>
+	</div>
+<% end %>
+
+

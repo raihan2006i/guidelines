@@ -16,13 +16,17 @@
 table.table td a {width: 920px; display:block; text-decoration:none;}
 
 
-.btn-small.main{margin-top: 38px; padding:4px 12px 0px 0px;}
+/*.btn-small.main{ padding:4px 12px 0px 0px;} */
+
+
+
+
 
 .btn-small{margin-top: 21px; width: 93px;}
 
 .btn-small.topic{margin-top: 29px;}
 
-a.btn {margin-bottom: 30px; margin-top: 40;}
+a.btn { margin-top: 40;}
 
 
 body{

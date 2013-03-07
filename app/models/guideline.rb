@@ -1,13 +1,18 @@
 class Guideline < ActiveRecord::Base
- 
+
+  include PublicActivity::Model
+  tracked owner: ->(controller, model){controller && controller.current_user}
+
+
 	def to_param
 		"#{id} #{title}".parameterize
 	end
 
-  attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty, :updated_by, :current_user, :subtitle, :slug, :comments
+  attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty, :updated_by, :current_user, :subtitle, :slug, :activities, :comment
  
  belongs_to :user
  has_many :favourite_guidelines
+ has_many :comments, :dependent => :destroy
 
 
   validates :content, presence: true,
