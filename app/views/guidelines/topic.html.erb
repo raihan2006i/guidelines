@@ -55,6 +55,13 @@
  				<i class="icon-star-empty"></i> Unfavourite
  				<% end %>
  			<% end %>
+
+ 			<% if guideline.comments.any? %>
+ 					<%= link_to guideline, class: "btn btn-small main white" do%><%= guideline.comments.count %> comments <% end %>
+ 			<% else %>
+ 					<%= link_to guideline, class: "btn btn-inverse btn-small main" do%>Add a comment
+ 					<% end %>
+ 			<% end %>
  			</div>
 		
  <% end %> 

@@ -2,7 +2,8 @@
 
 <% @activities.each do |activity| %>
 	<div class="activity">
-		<%= activity.owner.profile_name rescue 'System' %> added guidelines to <%= link_to activity.trackable.title, activity.trackable %>
+		<i><%= activity.owner.profile_name rescue 'System' %> </i>
+		<%= render_activity activity %>
 	</div>
 <% end %>
 

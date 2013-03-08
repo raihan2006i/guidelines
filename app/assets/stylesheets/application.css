@@ -12,14 +12,22 @@
  *= require_tree .
  */
 
+.activity {
+	border-bottom: solid 1px #CCC;
+	padding: 16px 0;
+em{color:#777;
+font-size: 12px;
+padding-left: 5px;}
+}
+
 
 table.table td a {width: 920px; display:block; text-decoration:none;}
 
 
-/*.btn-small.main{ padding:4px 12px 0px 0px;} */
+.btn-small.main{ padding:4px 12px 0px 0px;}
+.btn-inverse.main {padding: 4px 7px 4px 7px; margin-bottom: 13px;}
 
-
-
+a.btn-large{margin-bottom: 30px;}
 
 
 .btn-small{margin-top: 21px; width: 93px;}
@@ -27,6 +35,10 @@ table.table td a {width: 920px; display:block; text-decoration:none;}
 .btn-small.topic{margin-top: 29px;}
 
 a.btn { margin-top: 40;}
+
+.btn-inverse {padding: 0px;}
+.white{padding: 4px 4px 3px 3px;}
+
 
 
 body{

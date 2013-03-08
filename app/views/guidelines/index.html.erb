@@ -50,7 +50,7 @@
 			<div class="span2">
 
 				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
- 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small main" do%>
+ 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small btn-success main" do%>
  					<i class="icon icon-star"></i> Favourite
  					<% end %>
  				<% end %>
@@ -63,7 +63,13 @@
  			<% end %>
 
  			<% if guideline.comments.any? %>
- 					<%= link_to guideline, class: "btn btn-small btn-primary main" do%><%= guideline.comments.count %> comments <% end %>
+ 					<%= link_to guideline, class: "btn btn-small main white" do%><%= guideline.comments.count %> 
+ 					<% if guideline.comments.count==1 %>
+ 						comment
+ 					<% else %>
+ 					comments 
+ 					<% end %>
+ 					<% end %>
  			<% else %>
  					<%= link_to guideline, class: "btn btn-inverse btn-small main" do%>Add a comment
  					<% end %>

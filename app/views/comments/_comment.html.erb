@@ -6,10 +6,11 @@
 <i>
 	(By <%= comment.commenter.full_name %> on <%= comment.created_at.strftime("%d %b %Y") %>)</i>
 
-
-  <%= link_to 'Delete', [comment.guideline, comment],
+<% if comment.commenter==current_user %>
+  <%= link_to '  Delete', [comment.guideline, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
+ <% end %>
 </p>
 
 </table>

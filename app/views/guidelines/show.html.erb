@@ -1,68 +1,95 @@
 
-<%= link_to "Add a New Guideline", new_guideline_path, class: "btn btn-success btn-large" %>
+<h2>Guideline Info</h2>
 <div class="guidelinerow">
 
 	<div class="row">
-		
-			<div class="guideline span10">
-			  <h2>Guideline Info</h2>
-			<p>Title: <%= link_to @guideline.title, @guideline %> </p>
-			<strong> <a href="<%= @guideline.content %>", target = '_blank'>Link to guideline</a> </strong>
-			<p>Hospital Name: <%= @guideline.hospital %></p>
-			<% if @guideline.specialty %>
-				<p>Specialty: <%= @guideline.specialty %></p>
-			<% end %>
-
-			<% if @created %>
-			<p><i>Added by: <%= @created %> on <%= @guideline.created_at.strftime("%d %b %Y") %></i></p>
-			<% end %>
-
-			<% if @updated && (@created != @updated) %>
-			<p><i>Updated by: <%= @updated %> on <%= @guideline.updated_at.strftime("%d %b %Y") %></i></p>
-			<% end %>
 			
-			</div>
-			<div class="span2">
+			<div class="guideline span10">
+			  	
+				<p>Title: <%= link_to @guideline.title, @guideline %> </p>
+				<strong> <a href="<%= @guideline.content %>", target = '_blank'>Link to guideline</a> </strong>
+				<p>Hospital Name: <%= @guideline.hospital %></p>
+			
+				<% if @guideline.specialty %>
+					<p>Specialty hello: <%= @guideline.specialty %></p>
+				<% end %>
 
-			<% if current_user %>
-				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==@guideline.id}.any? %>
- 					<%= link_to guidelines_favourite_path(guideline_id: @guideline.id, type: "favourite"), method: "get", class: "btn btn-small topic" do%>
- 					<i class="icon icon-star"></i> Favourite
- 					<% end %>
- 				<% end %>
- 			<% if current_user.favourite_guidelines.select{|f| f.guideline_id==@guideline.id}.any? %>
- 				<%= link_to guidelines_favourite_path(guideline_id: @guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small topic" do%>
- 				<i class="icon-star-empty"></i> Unfavourite
- 				<% end %>
- 			<% end %>
+				<% if @created %>
+					<p><i>Added by: <%= @created %> on <%= @guideline.created_at.strftime("%d %b %Y") %></i></p>
+				<% end %>
 
- 			</div>
+				<% if @updated && (@created != @updated) %>
+					<p><i>Updated by: <%= @updated %> on <%= @guideline.updated_at.strftime("%d %b %Y") %></i></p>
+				<% end %>
 
-<% end %>
-<span class="admin">
 
+				<div class="meta">
+						 
+						  <span class="admin">
+						  
 						  	<% if current_user %>
 						    <%= link_to "Edit", edit_guideline_path(@guideline) %> 
 						   |
 						    <%= link_to "Delete", @guideline, method: :delete, data: { confirm: "Are you sure you want to delete this guideline?"} %>
 						    <% end %>
+						    
 						  </span>
+
+				</div>
+			
+			</div>
+
+			<% if current_user %>
+			
+			<div class="span2">
+
+				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==@guideline.id}.any? %>
+ 					<%= link_to guidelines_favourite_path(guideline_id: @guideline.id, type: "favourite"), method: "get", class: "btn btn-small btn-success main" do%>
+ 					<i class="icon icon-star"></i> Favourite
+ 					<% end %>
+ 				<% end %>
+ 				<% if current_user.favourite_guidelines.select{|f| f.guideline_id==@guideline.id}.any? %>
+ 				<%= link_to guidelines_favourite_path(guideline_id: @guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small btn-danger main show" do%>
+ 				<i class="icon-star-empty icon-white"></i> Unfavourite
+ 					<% end %>
+ 				<% end %>
+ 			
+ 			
+ 			<% end %>
+
+ 			
+
+ 			</div>
+
+
+					
+	</div>
 </div>
-</div>
-<div class="line">
+<% if current_user %>
 <h2>Comments</h2>
-				<%= render @guideline.comments %>
-				
-</div>
+	<% if @guideline.comments.count>0 %>
+		<div class="line">
+			<%= render @guideline.comments %>		
+		</div>
+		
+	<% else %>
+		<div class="line">
+			No comments have been added yet - be the first!
+		</div>
+	<% end %>
+
+<h2>Add a comment</h2>
 <div class="line">
-			<h2>Add a comment</h2>
-				<%= render 'comments/form'%>
+		
+		<%= render 'comments/form'%>
 </div>
-					<div class="meta">
-						 
-						 
-						 
 
-						  
+<% else %>
 
-					</div>
+	<div class="container">
+		</br>
+		<h3>You need to be logged in to see comments</h3>
+	</div>
+<% end %>
+
+					

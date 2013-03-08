@@ -178,6 +178,9 @@ class GuidelinesController < ApplicationController
   # POST /guidelines.json
   def create
     @guideline = current_user.guidelines.new(params[:guideline])
+    if @guideline.save
+      @guideline.create_activity :create, owner: current_user
+    end
    
    
 
@@ -200,6 +203,9 @@ class GuidelinesController < ApplicationController
   def update
 
     @guideline = Guideline.find(params[:id])
+    if @guideline.update_attributes(params[:guideline])
+     @guideline.create_activity :update, owner: current_user
+    end
 
     
     respond_to do |format|
@@ -219,6 +225,11 @@ class GuidelinesController < ApplicationController
   def destroy
     @guideline = Guideline.find(params[:id])
     @guideline.destroy
+
+    if @guideline.destroy
+     @guideline.create_activity :destroy, owner: current_user
+    end
+  
 
     respond_to do |format|
       format.html { redirect_to guidelines_url }
