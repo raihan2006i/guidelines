@@ -89,8 +89,10 @@ ActiveRecord::Schema.define(:version => 20130307101348) do
     t.integer  "user_id"
     t.string   "specialty"
     t.integer  "updated_by"
+    t.string   "comments"
   end
 
+  add_index "guidelines", ["comments"], :name => "index_guidelines_on_comments"
   add_index "guidelines", ["specialty"], :name => "index_guidelines_on_specialty"
   add_index "guidelines", ["updated_by"], :name => "index_guidelines_on_updated_by"
   add_index "guidelines", ["user_id"], :name => "index_guidelines_on_user_id"

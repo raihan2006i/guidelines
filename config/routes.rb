@@ -15,6 +15,7 @@ Guidelines::Application.routes.draw do
   get "guidelines/favourite"
   get "profiles/show"
   get "guidelines/show"
+
  
 
   devise_for :users
@@ -42,6 +43,7 @@ Guidelines::Application.routes.draw do
 
 resources :guidelines do
   resources :comments
+
 end
 
 

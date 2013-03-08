@@ -1,7 +1,7 @@
 class Guideline < ActiveRecord::Base
 
-  include PublicActivity::Common
-  #tracked owner: ->(controller, model){controller && controller.current_user}
+  include PublicActivity::Model
+  tracked owner: ->(controller, model){controller && controller.current_user}
 
 
 	def to_param
