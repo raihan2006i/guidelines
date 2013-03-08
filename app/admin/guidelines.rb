@@ -6,7 +6,7 @@ ActiveAdmin.register Guideline do
     column :content       
     column :hospital        
     column :user
-    column :comments   
+      
 
     default_actions                   
   end
