@@ -22,7 +22,7 @@ include PublicActivity::Model
               }
   validates :base_hospital, presence:true
 
- has_many :guidelines
+ has_many :guidelines, :autosave => true
  has_many :favourite_guidelines
  has_many :comments
 

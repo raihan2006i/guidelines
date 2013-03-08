@@ -226,9 +226,7 @@ class GuidelinesController < ApplicationController
     @guideline = Guideline.find(params[:id])
     @guideline.destroy
 
-    if @guideline.destroy
-     @guideline.create_activity :destroy, owner: current_user
-    end
+    
   
 
     respond_to do |format|
