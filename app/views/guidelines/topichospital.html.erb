@@ -45,12 +45,12 @@
 
 			<% if current_user %>
 				<% if !current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
- 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small topic" do%>
+ 					<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "favourite"), method: "get", class: "btn btn-small btn-success topic" do%>
  					<i class="icon icon-star"></i> Favourite
  					<% end %>
  				<% end %>
  			<% if current_user.favourite_guidelines.select{|f| f.guideline_id==guideline.id}.any? %>
- 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small topic" do%>
+ 				<%= link_to guidelines_favourite_path(guideline_id: guideline.id, type: "unfavourite"), method: "get", class: "btn btn-small btn-danger topic" do%>
  				<i class="icon-star-empty"></i> Unfavourite
  				<% end %>
  			<% end %>
