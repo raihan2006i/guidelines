@@ -17,10 +17,13 @@ gem 'progress_bar'
 gem 'kaminari'
 gem 'public_activity'
 
-
-
 group :test do
 	gem 'shoulda'
+end
+
+group :development do
+  gem 'quiet_assets'
+  gem 'puma'
 end
 
 group :development, :test do

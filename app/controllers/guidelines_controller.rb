@@ -128,7 +128,6 @@ class GuidelinesController < ApplicationController
   # POST /guidelines.json
   def create
     @guideline = current_user.guidelines.new(params[:guideline])
-  
 
     respond_to do |format|
       
@@ -149,8 +148,7 @@ class GuidelinesController < ApplicationController
     @guideline = Guideline.find(params[:id])
     
     respond_to do |format|
-      if @guideline.update_attributes(params[:guideline])
-        @guideline.update_attribute(:updated_by, current_user.id)
+      if @guideline.update_attributes(params[:guideline].merge(updated_by: current_user.id))
         format.html { redirect_to @guideline, notice: 'Guideline was successfully updated.' }
         format.json { head :no_content }
       else

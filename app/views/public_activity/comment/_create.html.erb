@@ -1,7 +1,6 @@
 added a comment 
-
 <% if activity.trackable %>
-	to the guideline <%= link_to activity.trackable.body, activity.trackable %>
+	to the guideline <%= link_to activity.trackable.guideline.title, activity.trackable.guideline %>
 <% else %>
  	which can no longer be viewed
 <% end %>

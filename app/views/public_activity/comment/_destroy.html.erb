@@ -1,6 +1,6 @@
 deleted a comment 
 <% if activity.trackable %>
-	<%= link_to activity.trackable.title, activity.trackable %>
+  on the guideline <%= link_to activity.trackable.guideline.title, activity.trackable.guideline %>
 <% else %>
- 	which can no longer be viewed
+  which can no longer be viewed
 <% end %>
