@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307101348) do
+ActiveRecord::Schema.define(:version => 20130309095029) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20130307101348) do
     t.string   "specialty"
     t.integer  "updated_by"
     t.string   "comments"
+    t.boolean  "visible"
   end
 
   add_index "guidelines", ["comments"], :name => "index_guidelines_on_comments"
