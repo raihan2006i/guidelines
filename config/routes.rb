@@ -15,6 +15,7 @@ Guidelines::Application.routes.draw do
   get "guidelines/favourite"
   get "profiles/show"
   get "guidelines/show"
+  get "guidelines/topiccountry"
 
  
 
@@ -35,6 +36,7 @@ Guidelines::Application.routes.draw do
   get 'topics', to: 'guidelines#list', as: :topics
   get 'hospitals', to: 'guidelines#listhospital', as: :hospitals
   get 'specialties', to: 'guidelines#listspecialty', as: :specialties
+  get 'countries', to: 'guidelines#listcountry', as: :countries
 
 
  resources :activities

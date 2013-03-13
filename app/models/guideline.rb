@@ -8,7 +8,7 @@ class Guideline < ActiveRecord::Base
 		"#{id} #{title}".parameterize
 	end
 
-  attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty, :updated_by, :current_user, :subtitle, :slug, :activities
+  attr_accessible :content, :hospital, :title, :user_id, :guideline_id, :specialty, :updated_by, :current_user, :subtitle, :slug, :activities, :country
  
  belongs_to :user
  has_many :favourite_guidelines
@@ -22,7 +22,8 @@ class Guideline < ActiveRecord::Base
   validates :title, presence: true,
             length: {minimum:2}
 
-
+  validates :country, presence: true,
+            length: {minimum:2}
 
   validates :hospital, presence: true,
             length: {minimum:2}

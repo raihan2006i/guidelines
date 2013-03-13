@@ -9,11 +9,10 @@ class GuidelinesController < ApplicationController
       @guidelines = @search.results
     else
       @guidelines = Guideline.order(:title).page(params[:page]).per(15)
-  end
-
+    end
       respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @guidelines }
+        format.html # index.html.erb
+        format.json { render json: @guidelines }
       end
   end
 
@@ -41,16 +40,23 @@ class GuidelinesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @guidelines }
     end
-    
   end
+
+  def listcountry
+    @list = Guideline.order(:country).uniq.pluck(:country)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end
+  end
+  
 
   def list
     @list = Kaminari.paginate_array(Guideline.order(:title).uniq.pluck(:title)).page(params[:page]).per(20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @guidelines }
-    end
-    
+    end  
   end
 
   def listhospital
@@ -67,6 +73,15 @@ class GuidelinesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @guidelines }
     end
+  end
+
+  def topiccountry
+    @guidelines =  Guideline.order(:title).find_all_by_country(params[:country])
+    @countcount = @guidelines.count
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @guidelines }
+    end 
   end
 
   def topicspecialty
